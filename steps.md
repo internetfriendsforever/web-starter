@@ -60,11 +60,11 @@ These instructions are general steps on how to reproduce the example website. It
 - Create `articles.js` file in data folder and use sanity utility to fetch and transform some data
 - Add markup in `index.mustache` template to display data
 
-## Use source version control (git)
+## Initialize git and commit files
 - Navigate to your project folder in terminal `cd /path/to/project`
 - Initialize git `git init`
-- Create `.gitignore` in your project folder and add files and folders that is not supposed to be in your repository. As a general rule, this are files and folders that are generated from source files
-- Use your favorite git client, review your files and commit
+- Create `.gitignore` in your project folder and add files and folders that is not supposed to be in your repository. As a general rule, this are files and folders that are generated
+- Use your favorite git client, review, stage your files and commit
 
 ## Setup and push to remote git origin
 - Setup a remote repository at a hosting provider ([Github](https://github.com/), [GitLab](https://gitlab.com/), [BitBucket](https://bitbucket.org/), [Gitern](https://gitern.com/))
