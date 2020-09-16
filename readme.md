@@ -2,7 +2,7 @@
 
 A website starter example using the following stack:
 
-- [11ty](https://www.11ty.dev/) frontend framework
+- [11ty](https://www.11ty.dev/) frontend
 - [Sanity](https://www.sanity.io/) backend
 - [JavaScript Standard Style](https://standardjs.com/) and [ESLint](https://eslint.org/) for code linting
 - [Mustache](https://mustache.github.io/mustache.5.html) templating (easily swappable)
