@@ -1,7 +1,4 @@
 {
-  "name": "web-starter-website",
-  "description": "Website starter example frontend",
-  "author": "internetfriendsforever <anyone@internetfriendsforever.com>",
   "scripts": {
     "build": "eleventy",
     "dev": "eleventy --serve",
