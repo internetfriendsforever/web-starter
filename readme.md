@@ -19,7 +19,7 @@ You need to have the following tools installed on your computer:
 
 ## Setup
 
-Although this repository can be cloned and used as a starting point, it might be more constructive to [setup your project from scratch](steps.md). This will help you understand what the stack consist of, how it fits together and how to change and tweak things for the project requirements and your own personal/team taste.
+Although this repository can be forked or downloaded as a starting point, it might be more constructive to [setup your project from scratch](steps.md). This will help you understand what the stack consist of, how it fits together and how to change and tweak things for the project requirements and your own personal/team taste.
 
 ## Development
 
