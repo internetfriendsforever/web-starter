@@ -13,7 +13,7 @@ These instructions are general steps on how to reproduce the example website. It
 - Navigate to the website directory in yout terminal: `cd /path/to/project/website`
 - Install dependencies: `npm install @11ty/eleventy pretty`
 - Install development dependencies (for syntax linting): `npm install --save-dev eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard`
-- Add `.eslintrc` config which extends [standardjs](https://standardjs.com/) in website directory
+- Add `.eslintrc` config which extends [standardjs](https://standardjs.com/) in website directory (see repository source code)
 - Add `.nvmrc` to specify which node version the project is using in website directory
 - Create `.eleventy.js` config in website directory
   - Passthrough copy for `assets` folder
