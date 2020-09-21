@@ -56,7 +56,7 @@ These instructions are general steps on how to reproduce the example website. It
   - Add client configuration
   - Add fetch with cache utility script
   - Add image and html utility script
-- Create a `data` directory in website folder
+- Create a `data` directory in src folder
 - Create `articles.js` file in data folder and use sanity utility to fetch and transform some data
 - Add markup in `index.mustache` template to display data
 
