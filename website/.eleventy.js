@@ -19,10 +19,10 @@ module.exports = function(config) {
     templateFormats: ['mustache'],
     jsDataFileSuffix: ".data",
     dir: {
-      input: 'src',
+      input: 'src/views',
       output: 'dist',
-      data: 'data',
-      includes: 'includes'
+      data: '../data',
+      includes: '../includes'
     }
   }
 }
