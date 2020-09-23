@@ -6,13 +6,16 @@
 [[redirects]]
   from = "/"
   to = "/de"
+  status = 302
   conditions = {Language = ["de"]}
 
 [[redirects]]
   from = "/"
   to = "/nb"
+  status = 302
   conditions = {Language = ["nb"]}
 
 [[redirects]]
   from = "/"
   to = "/en"
+  status = 302
