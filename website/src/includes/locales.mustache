@@ -1,0 +1,9 @@
+<ul>
+  {{#locales}}
+    <li>
+      {{^current}}<a href="/{{lang}}">{{/current}}
+      {{title}}
+      {{^current}}</a>{{/current}}
+    </li>
+  {{/locales}}
+</ul>

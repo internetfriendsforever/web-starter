@@ -1,0 +1,12 @@
+{
+  "hello": {
+    "en": "Hello World!",
+    "de": "Hallo Welt!",
+    "nb": "Hei Verden!"
+  },
+  "welcome": {
+    "en": "Welcome to this website",
+    "de": "Willkommen auf dieser seite",
+    "nb": "Velkommen til dette nettstedet"
+  }
+}

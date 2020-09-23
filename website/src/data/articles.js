@@ -5,7 +5,12 @@ module.exports = async () => {
     *[_type == "article"]{
       title,
       image,
-      body
+      body,
+      "introduction": {
+        "en": "This is an introduction",
+        "de": "Dies ist eine Einführung",
+        "nb": "Dette er en introduksjon"
+      }
     }
   `)
 
