@@ -1,3 +1,4 @@
+const Intl = require('intl')
 const locales = require('./locales.json')
 
 const langs = locales.map(locale => locale.lang)
@@ -17,10 +18,18 @@ module.exports = {
       return result
     }, {})
 
+    // Date formatter
+    const dateFormat = new Intl.DateTimeFormat(lang, {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    })
+
     // Translate articles
     const articles = data.articles.map(article => ({
       ...article,
-      introduction: getTranslation(article.introduction, lang)
+      introduction: getTranslation(article.introduction, lang),
+      updatedAt: dateFormat.format(Date.parse(article._updatedAt))
     }))
 
     // Find path mappings to other locales

@@ -13,5 +13,10 @@
     "en": "About this website",
     "de": "Über diese seite",
     "nb": "Om dette nettstedet"
+  },
+  "lastUpdated": {
+    "en": "Last updated:",
+    "de": "Letzte Aktualisierung:",
+    "nb": "Sist oppdatert:"
   }
 }

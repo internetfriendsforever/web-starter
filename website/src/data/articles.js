@@ -6,6 +6,7 @@ module.exports = async () => {
       title,
       image,
       body,
+      _updatedAt,
       "introduction": {
         "en": "This is an introduction",
         "de": "Dies ist eine Einführung",
