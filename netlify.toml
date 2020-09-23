@@ -1,3 +1,4 @@
-base = "website/"
-publish = "dist/"
-command = "npm run build"
+[build]
+  base = "website/"
+  publish = "dist/"
+  command = "npm run build"
