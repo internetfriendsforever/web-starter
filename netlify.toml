@@ -1,0 +1,3 @@
+base = "website/"
+publish = "dist/"
+command = "npm run build"
