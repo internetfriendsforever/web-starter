@@ -8,5 +8,10 @@
     "en": "Welcome to this website",
     "de": "Willkommen auf dieser seite",
     "nb": "Velkommen til dette nettstedet"
+  },
+  "about": {
+    "en": "About this website",
+    "de": "Über diese seite",
+    "nb": "Om dette nettstedet"
   }
 }

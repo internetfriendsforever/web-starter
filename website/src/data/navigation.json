@@ -1,0 +1,23 @@
+[
+  {
+    "path": {
+      "en": "/"
+    },
+    "label": {
+      "en": "Home",
+      "de": "Hause",
+      "nb": "Hjem"
+    }
+  }, {
+    "path": {
+      "en": "/about/",
+      "de": "/uber/",
+      "nb": "/om/"
+    },
+    "label": {
+      "en": "About",
+      "de": "Über",
+      "nb": "Om"
+    }
+  }
+]

@@ -1,0 +1,9 @@
+<ul>
+  {{#navigation}}
+    <li>
+      {{^current}}<a href="{{{path}}}">{{/current}}
+      {{label}}
+      {{^current}}</a>{{/current}}
+    </li>
+  {{/navigation}}
+</ul>
