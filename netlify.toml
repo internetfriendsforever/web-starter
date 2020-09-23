@@ -1,0 +1,17 @@
+base = "website/"
+publish = "dist/"
+command = "npm run build"
+
+[[redirects]]
+  from = "/"
+  to = "/de"
+  conditions = {Language = ["de"]}
+
+[[redirects]]
+  from = "/"
+  to = "/nb"
+  conditions = {Language = ["nb"]}
+
+[[redirects]]
+  from = "/"
+  to = "/en"
