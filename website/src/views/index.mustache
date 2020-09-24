@@ -1,1 +1,17 @@
+---
+layout: layout
+---
 {{>locales}}
+{{>navigation}}
+
+<h1>{{strings.hello}}</h1>
+
+<ul>
+  {{#articles}}
+    <li>
+      <a href="{{slug}}">
+        {{title}}
+      </a>
+    </li>
+  {{/articles}}
+</ul>

@@ -1,9 +1,9 @@
 <ul>
-  {{#navigation}}
+  {{#navigation.list}}
     <li>
-      {{^current}}<a href="/{{{locale.lang}}}{{{path}}}">{{/current}}
+      {{^current}}<a href="/{{{lang}}}{{{path}}}">{{/current}}
       {{label}}
       {{^current}}</a>{{/current}}
     </li>
-  {{/navigation}}
+  {{/navigation.list}}
 </ul>

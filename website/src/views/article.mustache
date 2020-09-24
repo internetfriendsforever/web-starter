@@ -1,16 +1,15 @@
 ---
 layout: layout
 pagination:
-    data: contents
+    data: articles
     size: 1
-    alias: content
-permalink: "{{{content.path}}}"
+    alias: article
+permalink: "{{article.slug}}/index.html"
 ---
-{{#content}}
-  {{>locales}}
+{{>locales}}
+{{>navigation}}
 
-  {{#article}}
-    <h1>{{title}}</h1>
-    <p><em>{{introduction}}</em></p>
-  {{/article}}
-{{/content}}
+{{#article}}
+  <h1>{{title}}</h1>
+  <p><em>{{introduction}}</em></p>
+{{/article}}

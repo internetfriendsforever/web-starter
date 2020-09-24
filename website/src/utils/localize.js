@@ -1,3 +1,3 @@
 module.exports = function (object, locale) {
-  return object[locale.lang] || object.en
+  return object[process.env.lang] || object.en
 }

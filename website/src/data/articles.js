@@ -1,7 +1,5 @@
 const sanity = require('../utils/sanity')
 const localize = require('../utils/localize')
-const locales = require('../data/locales.json')
-const strings = require('../data/strings.json')
 
 module.exports = async () => {
   const articles = await sanity.fetch(`
@@ -15,20 +13,18 @@ module.exports = async () => {
         "en": "first-article",
         "de": "erste-artikel",
         "nb": "forste-artikkel"
+      },
+      "introduction": {
+        "en": "This is an introduction",
+        "de": "Dies ist eine Einführung",
+        "nb": "Dette er en introduksjon"
       }
     }
   `)
 
-  const contents = locales.map(locale => ({
-    path: `${locale.lang}/index.html`,
-    hello: localize(strings.hello, locale),
-    articles: articles.map(article => ({
-      title: localize(article.title, locale),
-      path: `/${locale.lang}/${localize(article.slug, locale)}`
-    }))
+  return articles.map(article => ({
+    title: localize(article.title),
+    slug: localize(article.slug),
+    introduction: localize(article.introduction)
   }))
-
-  return {
-    contents
-  }
 }
