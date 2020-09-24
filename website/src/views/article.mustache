@@ -1,0 +1,16 @@
+---
+layout: layout
+pagination:
+    data: contents
+    size: 1
+    alias: content
+permalink: "{{{content.path}}}"
+---
+{{#content}}
+  {{>locales}}
+
+  {{#article}}
+    <h1>{{title}}</h1>
+    <p><em>{{introduction}}</em></p>
+  {{/article}}
+{{/content}}

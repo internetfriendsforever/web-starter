@@ -1,5 +1,6 @@
 [
   {
+    "id": "home",
     "path": {
       "en": "/"
     },
@@ -9,6 +10,7 @@
       "nb": "Hjem"
     }
   }, {
+    "id": "about",
     "path": {
       "en": "/about/",
       "de": "/uber/",

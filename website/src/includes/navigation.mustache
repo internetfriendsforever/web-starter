@@ -1,7 +1,7 @@
 <ul>
   {{#navigation}}
     <li>
-      {{^current}}<a href="{{{path}}}">{{/current}}
+      {{^current}}<a href="/{{{locale.lang}}}{{{path}}}">{{/current}}
       {{label}}
       {{^current}}</a>{{/current}}
     </li>
