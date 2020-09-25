@@ -14,7 +14,8 @@ const serverOptions = [
   '--server "dist"',
   '--files "dist"',
   `--startPath "/${locales[0].lang}"`,
-  '--reload-delay 0'
+  '--reload-delay 0',
+  '--no-notify'
 ]
 
 const server = `npx browser-sync start ${serverOptions.join(' ')}`
