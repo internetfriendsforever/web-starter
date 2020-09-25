@@ -1,3 +1,5 @@
+_**Note:** This is a branch of the original web-starter. It features localization of the website frontend. Beware it is not neccessarily in sync with the original master branch._
+
 # Web starter
 
 A website starter example using the following stack:
