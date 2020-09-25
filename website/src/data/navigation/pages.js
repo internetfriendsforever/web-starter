@@ -1,4 +1,4 @@
-const localize = require('../utils/localize')
+const localize = require('../../utils/localize')
 
 const items = {
   home: {

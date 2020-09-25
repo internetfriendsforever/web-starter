@@ -1,15 +1,20 @@
 module.exports = {
   eleventyComputed: {
-    localeNavigation: data => {
+    navigation: data => {
       // Find the article which is currently being rendered
-      const article = data.articles.find(article => `/${article.slug}/` === data.page.url)
+      const slug = data.page.url.split('/').filter(Boolean)[0]
+      const article = data.articles.find(article => article.slug.local === slug)
 
-      // Overwrite localeNavigation with paths to that article in other locales
-      return data.localeNavigation.map(item => {
-        const lang = item.locale.lang
-        const path = `/${lang}/${article.slug[lang]}/`
-        return { ...item, path }
-      })
+      return {
+        ...data.navigation,
+
+        // Overwrite locale navigation with paths to page in other locales
+        locales: data.navigation.locales.map(item => {
+          const lang = item.locale.lang
+          const path = `/${lang}/${article.slug[lang]}/`
+          return { ...item, path }
+        })
+      }
     }
   }
 }
