@@ -29,7 +29,7 @@ As there are no built-in functionality for localizing in 11ty so there is many w
 After some trial and error (with symlinks), I found that you could run 11ty i mulitple processes using a different environment variable (`process.env.lang`) and output directory for each locale. There are a few downsides to this approach:
 
 - You can't simply run the `eleventy` command. There are [build](website/build.js) and [dev](website/dev.js) scripts. Even though there's a little more tooling, it seems to be working quite well.
-- If you want your assets exist globally (`/assets/styles.css` instead of `/en/assets/styles.css`), you need to manage the copying of these outside of eleventy.
+- If you want your assets to exist globally (`/assets/styles.css` instead of `/en/assets/styles.css`), you need to manage the copying of these outside of eleventy.
 
 The upside is that it's a little easier to reason about and avoids a lot of duplicated code.
 
