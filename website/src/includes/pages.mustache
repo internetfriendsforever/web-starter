@@ -1,9 +1,15 @@
 <ul>
   {{#navigation.pages.list}}
     <li>
-      {{^current}}<a href="/{{{lang}}}{{{path}}}">{{/current}}
+      {{^current}}
+        <a href="/{{{lang}}}{{{path}}}">
+      {{/current}}
+
       {{label}}
-      {{^current}}</a>{{/current}}
+
+      {{^current}}
+        </a>
+      {{/current}}
     </li>
   {{/navigation.pages.list}}
 </ul>
