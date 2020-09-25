@@ -1,6 +1,7 @@
 module.exports = {
   eleventyComputed: {
     navigation: data => {
+      // Map article to different locales
       const slug = data.page.url.split('/').filter(Boolean)[0]
       const article = data.articles.find(article => article.slug.local === slug)
 
