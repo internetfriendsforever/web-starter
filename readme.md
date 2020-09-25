@@ -24,7 +24,7 @@ _This is a branch of the original web-starter. It features localization of the w
 
 **Mehod:**
 
-As there are no built-in functionality for localizing in 11ty so there is many ways of going about. Some [suggested methods](https://www.webstoemp.com/blog/multilingual-sites-eleventy/) involve a lot of duplicated code, which is not very maintainable.
+As there are no built-in functionality for localizing in 11ty there are many ways of going about. Some [suggested methods](https://www.webstoemp.com/blog/multilingual-sites-eleventy/) involve a lot of duplicated code, which is not very maintainable.
 
 After some trial and error (with symlinks), I found that you could run 11ty i mulitple processes using a different environment variable (`process.env.lang`) and output directory for each locale. There are a few downsides to this approach:
 
