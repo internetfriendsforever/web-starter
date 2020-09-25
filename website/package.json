@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "eleventy",
+    "build": "node build",
     "dev": "node dev",
     "clean": "rm -rf dist .cache"
   },
