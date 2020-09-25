@@ -2,7 +2,9 @@
   {
     "key": "home",
     "path": {
-      "en": "/"
+      "en": "/",
+      "de": "/",
+      "nb": "/"
     },
     "label": {
       "en": "Home",

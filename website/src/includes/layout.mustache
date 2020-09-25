@@ -4,13 +4,11 @@
     <title>{{title}}</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="/assets/styles.css" />
-    {{#locale}}
-      {{#locales}}
-        {{#path}}
-          <link rel="alternate" hreflang="{{lang}}" href="/{{lang}}{{{path}}}" />
-        {{/path}}
-      {{/locales}}
-    {{/locale}}
+    {{#navigation.locales}}
+      {{#alternate}}
+        <link rel="alternate" hreflang="{{locale.lang}}" href="{{{path}}}" />
+      {{/alternate}}
+    {{/navigation.locales}}
   </head>
   <body>
     {{{content}}}

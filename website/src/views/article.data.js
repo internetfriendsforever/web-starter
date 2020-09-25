@@ -11,8 +11,9 @@ module.exports = {
         locales: data.navigation.locales.map(item => {
           const lang = item.locale.lang
           const slug = article.slug[lang]
-          const path = slug ? `/${lang}/${slug}/` : item.path
-          return { ...item, path }
+          const alternate = !!slug
+          const path = alternate ? `/${lang}/${slug}/` : item.path
+          return { ...item, path, alternate }
         }).filter(Boolean)
       }
     }

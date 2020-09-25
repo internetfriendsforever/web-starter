@@ -17,8 +17,9 @@ module.exports = {
         const lang = item.locale.lang
         const pageItem = data.navigation.pages.list.find(p => p.path.local === data.page.url)
         const pageLocalePath = pageItem.path[lang]
-        const path = pageLocalePath ? `/${lang}${pageLocalePath}` : item.path
-        return { ...item, path }
+        const alternate = !!pageLocalePath
+        const path = alternate ? `/${lang}${pageLocalePath}` : item.path
+        return { ...item, path, alternate }
       })
     }
   }
