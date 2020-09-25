@@ -11,7 +11,7 @@ _No other pre-/post processors or bundlers for JavaScript or CSS (Babel, PostCSS
 
 ## Locales edition 🚩
 
-_This is a branch of the original web-starter. It features localization of the website frontend. Beware it is not neccessarily in sync with the original master branch._
+_This is a branch of the original web-starter. It features localization of the website. Beware it is not neccessarily in sync with the original master branch._
 
 **Goals:**
 - Localize strings, dates, numbers, etc.
