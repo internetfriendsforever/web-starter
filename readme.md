@@ -26,7 +26,7 @@ _This is a branch of the original web-starter. It features localization of the w
 
 As there are no built-in functionality for localizing in 11ty so there is many ways of going about. Some [suggested methods](https://www.webstoemp.com/blog/multilingual-sites-eleventy/) involve a lot of duplicated code, which is not very maintainable.
 
-After some trial and error (with symlinks), I found that you could run 11ty i mulitple processes using a different environment variable (`process.env.lang`) and output directory for each locale. There are a few downsides to this approach:
+After some trial and error using symlinks, I found that you could run 11ty i mulitple processes using a different environment variable (`process.env.lang`) and output directory for each locale. There are a few downsides to this approach:
 
 - You can't simply run the `eleventy` command. There are [build](website/src/build.js) and [dev](website/src/dev.js) scripts. Even though there's a little more tooling, it seems to be working quite well.
 - If you only want your assets to be referenced globally (`/assets/styles.css` instead of `/en/assets/styles.css`), you need to manage the copying of these outside of eleventy.
