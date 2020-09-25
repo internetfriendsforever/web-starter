@@ -1,5 +1,3 @@
-_**Note:** This is a branch of the original web-starter. It features localization of the website frontend. Beware it is not neccessarily in sync with the original master branch._
-
 # Web starter
 
 A website starter example using the following stack:
@@ -11,6 +9,34 @@ A website starter example using the following stack:
 
 _No other pre-/post processors or bundlers for JavaScript or CSS (Babel, PostCSS, Sass, Stylus, etc.) are included._
 
+## Locales edition 🚩
+
+_This is a branch of the original web-starter. It features localization of the website frontend. Beware it is not neccessarily in sync with the original master branch._
+
+**Goals:**
+- Localize strings, dates, numbers, etc.
+- Path based localization (e.g. `/en`, `/nb`)
+- Localize urls (e.g. `/en/first-article` and `/nb/forste-artikkel`)
+- Navigate between pages in different languages (without going back to start)
+- Avoid duplication of code and data (i.e. templates for each locale, multiple sources of truth)
+- Minimize the usage of computed data in 11ty (since its inner workings is a little complex)
+- Add [meta tags for alternative locales](https://ahrefs.com/blog/hreflang-tags/)
+
+**Mehod:**
+
+As there are no built-in functionality for localizing in 11ty so there is many ways of going about. Some [suggested methods](https://www.webstoemp.com/blog/multilingual-sites-eleventy/) involve a lot of duplicated code, which is not very maintainable.
+
+After some trial and error (with symlinks), I found that you could run 11ty i mulitple processes using a different environment variable (`process.env.lang`) and output directory for each locale. There are a few downsides to this approach:
+
+- You can't simply run the `eleventy` command. There are [build](website/src/build.js) and [dev](website/src/dev.js) scripts. Even though there's a little more tooling, it seems to be working quite well.
+- If you only want your assets to be referenced globally (`/assets/styles.css` instead of `/en/assets/styles.css`), you need to manage the copying of these outside of eleventy.
+
+The upside is that it's a little easier to reason about and avoids a lot of duplicated code.
+
+**Todo:**
+- Add example for localization in Sanity
+- Add localization methods for dates and numbers
+
 ## Prerequisites
 
 You need to have the following tools installed on your computer:
@@ -21,7 +47,7 @@ You need to have the following tools installed on your computer:
 
 ## Setup
 
-Although this repository can be forked or downloaded as a starting point, it might be more constructive to [setup your project from scratch](steps.md). This will help you understand what the stack consist of, how it fits together and how to change and tweak things for the project requirements and your own personal/team taste.
+This repository can be forked or downloaded as a starting point.
 
 ## Development
 
