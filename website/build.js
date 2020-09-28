@@ -1,6 +1,6 @@
 const child = require('child_process')
 const concurrently = require('concurrently')
-const locales = require('./src/data/locales.json')
+const locales = require('../locales')
 
 child.execSync('mkdir -p dist')
 child.execSync('cp -r src/assets dist/assets')
