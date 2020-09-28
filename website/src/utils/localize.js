@@ -1,17 +1,10 @@
 const lang = require('../data/lang')
-const locales = require('../data/locales.json')
+const locales = require('../data/locales')
 
-module.exports = function (object, locale) {
-  let local = object[locale ? locale.lang : lang]
-
-  // Fallback to first translation prioritized by locales.json
-  if (!local) {
-    local = object[locales.find(locale => locale.lang in object).lang]
-  }
-
-  return {
-    ...object,
-    local,
-    toString: () => local
-  }
-}
+module.exports = (object, locale) => ({
+  ...object,
+  local: (
+    object[locale ? locale.lang : lang] ||
+    object[locales.find(locale => locale.lang in object).lang]
+  )
+})

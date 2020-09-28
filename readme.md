@@ -34,8 +34,8 @@ After some trial and error (with symlinks), I found that you could run 11ty i mu
 The upside is that it's a little easier to reason about and avoids a lot of duplicated code.
 
 **Todo:**
-- Add example for localization in Sanity
-- Single locales.json for the website and Sanity
+- <del>Add example for localization in Sanity</del>
+- <del>Single locales.json for the website and Sanity</del>
 - Add localization methods for dates and numbers
 
 ## Prerequisites

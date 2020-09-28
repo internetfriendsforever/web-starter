@@ -1,11 +1,33 @@
 const localize = require('../../utils/localize')
-const pages = require('../pages.json')
 
-const list = pages.map(page => ({
-  key: page.key,
-  path: localize(page.path),
-  label: localize(page.label)
-}))
+const list = [
+  {
+    key: 'home',
+    path: localize({
+      en: '/',
+      de: '/',
+      nb: '/'
+    }),
+    label: localize({
+      en: 'Home',
+      de: 'Hause',
+      nb: 'Hjem'
+    })
+  },
+  {
+    key: 'about',
+    path: localize({
+      en: '/about/',
+      de: '/uber/',
+      nb: '/om/'
+    }),
+    label: localize({
+      en: 'About',
+      de: 'Über',
+      nb: 'Om'
+    })
+  }
+]
 
 const keys = {}
 

@@ -4,12 +4,17 @@ pagination:
     data: articles
     size: 1
     alias: article
-permalink: "{{article.slug}}/index.html"
+permalink: "{{article.slug.local.current}}/index.html"
 ---
 {{>locales}}
 {{>pages}}
 
 {{#article}}
-  <h1>{{title}}</h1>
-  <p><em>{{introduction}}</em></p>
+  <h1>{{title.local}}</h1>
+
+  {{#imageUrl}}
+    <img src="{{{imageUrl}}}" />
+  {{/imageUrl}}
+
+  {{{bodyHtml}}}
 {{/article}}

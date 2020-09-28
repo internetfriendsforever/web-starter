@@ -4,13 +4,13 @@ layout: layout
 {{>locales}}
 {{>pages}}
 
-<h1>{{strings.hello}}</h1>
+<h1>{{strings.hello.local}}</h1>
 
 <ul>
   {{#articles}}
     <li>
-      <a href="/{{lang}}/{{slug}}">
-        {{title}}
+      <a href="/{{lang}}/{{slug.local.current}}">
+        {{title.local}}
       </a>
     </li>
   {{/articles}}
