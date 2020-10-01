@@ -15,7 +15,7 @@ const queryUrl = query => {
 }
 
 const fetch = async (query, options = ({
-  duration: '2m',
+  duration: '1d',
   type: 'json'
 })) => {
   const url = queryUrl(query)
