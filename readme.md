@@ -1,3 +1,5 @@
+_Note: The documentation is outdated for this branch!_
+
 # Web starter
 
 A website starter example using the following stack:
