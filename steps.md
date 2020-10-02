@@ -1,3 +1,5 @@
+_Note: The documentation is outdated for this branch!_
+
 # How to make this project from scratch
 
 These instructions are general steps on how to reproduce the example website. It does not contain all details and source code. Find and copy code from the [repository](https://github.com/internetfriendsforever/web-starter) when needed.
