@@ -1,8 +1,8 @@
 const pretty = require('pretty')
+const sanity = require('./utils/sanity')
 const index = require('./views/index')
 const about = require('./views/about')
 const article = require('./views/article')
-const sanity = require('./utils/sanity')
 
 module.exports = async () => {
   const files = {
@@ -16,22 +16,22 @@ module.exports = async () => {
     files[`articles/${id}/index.html`] = article(id)
   })
 
-  // Render all in parallel
+  // Render in paralell
   const promises = Object.values(files)
   const values = await Promise.all(promises)
 
   Object.keys(files).forEach((key, i) => {
-    let body = values[i]
+    files[key] = values[i]
+  })
 
-    // Make html pretty
+  // Make html pretty
+  for (const key in files) {
     if (key.endsWith('.html')) {
-      body = pretty(body, {
+      files[key] = pretty(files[key], {
         ocd: true
       })
     }
-
-    files[key] = body
-  })
+  }
 
   return files
 }
