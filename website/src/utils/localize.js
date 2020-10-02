@@ -1,3 +1,4 @@
+const Intl = require('intl')
 const lang = require('../data/lang')
 const locales = require('../data/locales')
 
@@ -9,3 +10,8 @@ module.exports.object = (object, locale) => ({
     object[locales.find(locale => locale.lang in object).lang]
   )
 })
+
+// Localize Date object
+module.exports.date = function (date, format, locale) {
+  return new Intl.DateTimeFormat(locale ? locale.lang : lang, format).format(date)
+}

@@ -17,8 +17,8 @@ module.exports = {
     nb: 'Om dette nettstedet'
   }),
   lastUpdated: localize.object({
-    en: 'Last updated:',
-    de: 'Letzte Aktualisierung:',
-    nb: 'Sist oppdatert:'
+    en: 'Last updated',
+    de: 'Letzte Aktualisierung',
+    nb: 'Sist oppdatert'
   })
 }

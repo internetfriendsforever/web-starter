@@ -4,6 +4,7 @@ const sanity = require('../utils/sanity')
 module.exports = async () => {
   const articles = await sanity.fetch(`
     *[_type == "article"]{
+      _updatedAt,
       title,
       slug,
       image,
@@ -12,6 +13,11 @@ module.exports = async () => {
   `)
 
   return articles.map(article => ({
+    updated: localize.date(Date.parse(article._updatedAt), {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }),
     title: localize.object(article.title),
     slug: localize.object(article.slug),
     body: localize.object(article.body),
