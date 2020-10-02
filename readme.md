@@ -14,7 +14,7 @@ _No other pre-/post processors or bundlers for JavaScript or CSS (Babel, PostCSS
 _This is a branch of the original web-starter. It features localization of the website. Beware it is not neccessarily in sync with the original master branch._
 
 **Goals:**
-- Localize strings, dates, numbers, etc.
+- Localize strings, dates, etc.
 - Path based localization (e.g. `/en`, `/nb`)
 - Localize urls (e.g. `/en/first-article` and `/nb/forste-artikkel`)
 - Navigate between pages in different languages (without going back to start)
@@ -32,11 +32,6 @@ After some trial and error (with symlinks), I found that you could run 11ty i mu
 - If you want your assets to exist globally (`/assets/styles.css` instead of `/en/assets/styles.css`), you need to manage the copying of these outside of eleventy.
 
 The upside is that it's a little easier to reason about and avoids a lot of duplicated code.
-
-**Todo:**
-- <del>Add example for localization in Sanity</del>
-- <del>Single locales.json for the website and Sanity</del>
-- Add localization methods for dates and numbers
 
 ## Prerequisites
 
