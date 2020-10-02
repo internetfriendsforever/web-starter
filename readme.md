@@ -14,6 +14,7 @@ _No other pre-/post processors or bundlers for JavaScript or CSS (Babel, PostCSS
 _This is a branch of the original web-starter. It features localization of the website. Beware it is not neccessarily in sync with the original master branch._
 
 **Goals:**
+- Single locale config for backend and frontend
 - Localize strings, dates, etc.
 - Path based localization (e.g. `/en`, `/nb`)
 - Localize urls (e.g. `/en/first-article` and `/nb/forste-artikkel`)
