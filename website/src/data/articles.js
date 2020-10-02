@@ -12,10 +12,10 @@ module.exports = async () => {
   `)
 
   return articles.map(article => ({
-    title: localize(article.title),
-    slug: localize(article.slug),
-    body: localize(article.body),
+    title: localize.object(article.title),
+    slug: localize.object(article.slug),
+    body: localize.object(article.body),
     imageUrl: sanity.image(article.image).width(2000).fit('max').auto('format').url(),
-    bodyHtml: sanity.html(localize(article.body).local)
+    bodyHtml: sanity.html(localize.object(article.body).local)
   }))
 }

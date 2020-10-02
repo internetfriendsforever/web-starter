@@ -1,7 +1,8 @@
 const lang = require('../data/lang')
 const locales = require('../data/locales')
 
-module.exports = (object, locale) => ({
+// Localize object
+module.exports.object = (object, locale) => ({
   ...object,
   local: (
     object[locale ? locale.lang : lang] ||
