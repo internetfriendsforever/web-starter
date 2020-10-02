@@ -3,12 +3,12 @@ const localize = require('../../utils/localize')
 const list = [
   {
     key: 'home',
-    path: localize({
+    path: localize.object({
       en: '/',
       de: '/',
       nb: '/'
     }),
-    label: localize({
+    label: localize.object({
       en: 'Home',
       de: 'Hause',
       nb: 'Hjem'
@@ -16,12 +16,12 @@ const list = [
   },
   {
     key: 'about',
-    path: localize({
+    path: localize.object({
       en: '/about/',
       de: '/uber/',
       nb: '/om/'
     }),
-    label: localize({
+    label: localize.object({
       en: 'About',
       de: 'Über',
       nb: 'Om'

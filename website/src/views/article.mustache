@@ -12,6 +12,8 @@ permalink: "{{article.slug.local.current}}/index.html"
 {{#article}}
   <h1>{{title.local}}</h1>
 
+  <p>{{strings.lastUpdated.local}}: {{updated}}</p>
+
   {{#imageUrl}}
     <img src="{{{imageUrl}}}" />
   {{/imageUrl}}

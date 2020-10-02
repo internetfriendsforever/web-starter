@@ -1,24 +1,24 @@
 const localize = require('../utils/localize')
 
 module.exports = {
-  hello: localize({
+  hello: localize.object({
     en: 'Hello World!',
     de: 'Hallo Welt!',
     nb: 'Hei Verden!'
   }),
-  welcome: localize({
+  welcome: localize.object({
     en: 'Welcome to this website',
     de: 'Willkommen auf dieser seite',
     nb: 'Velkommen til dette nettstedet'
   }),
-  about: localize({
+  about: localize.object({
     en: 'About this website',
     de: 'Über diese seite',
     nb: 'Om dette nettstedet'
   }),
-  lastUpdated: localize({
-    en: 'Last updated:',
-    de: 'Letzte Aktualisierung:',
-    nb: 'Sist oppdatert:'
+  lastUpdated: localize.object({
+    en: 'Last updated',
+    de: 'Letzte Aktualisierung',
+    nb: 'Sist oppdatert'
   })
 }
