@@ -1,3 +1,7 @@
 body {
   background: gold;
 }
+
+footer {
+  border-top: 1px solid;
+}
