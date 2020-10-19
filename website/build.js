@@ -10,4 +10,6 @@ const builds = locales.map(locale => ({
   command: `lang=${locale.lang} npx eleventy --output=dist/${locale.lang}`
 }))
 
-concurrently(builds)
+concurrently(builds).catch(() => {
+  process.exit(1)
+})
