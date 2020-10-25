@@ -2,10 +2,11 @@ const sanityClient = require('@sanity/client')
 const imageUrlBuilder = require('@sanity/image-url')
 const blocksToHtml = require('@sanity/block-content-to-html')
 const Cache = require('@11ty/eleventy-cache-assets')
+const config = require('../../../sanity/sanity.json')
 
 const client = sanityClient({
-  projectId: 'kyx9b3tb',
-  dataset: 'production',
+  projectId: config.api.projectId,
+  dataset: config.api.dataset,
   useCdn: false
 })
 
