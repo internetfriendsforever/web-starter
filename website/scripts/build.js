@@ -5,7 +5,10 @@ const fs = require('fs')
 const path = require('path')
 const child = require('child_process')
 
-build(path.join(__dirname, '..'))
+build(path.join(__dirname, '..')).catch(error => {
+  console.log(error)
+  process.exit(1)
+})
 
 async function build (project) {
   const dist = path.join(project, 'dist')
