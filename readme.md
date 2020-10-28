@@ -53,7 +53,7 @@ The files are output to `dist`, and its contents can be hosted on any static web
 **Method 2** – Automatic deployments:
 
 Using a hosting provider like [Netlify](https://www.netlify.com/) can simplify the process considerably as it has built-in continous integration. This means that you can set it up to build and deploy your site whenever the source code is pushed or the sanity content changes:
-- Configure _base directory_, _build command_ and _publish directory_ using [netlify.toml](netlify.toml) (or after next step in the project build settings on Netlify).
+- Configure _base directory_, _build command_ and _publish directory_ using [netlify.toml](netlify.toml) (or after the next step, in the project build settings on Netlify).
 - Setup a project on Netlify and connect it with your hosted git repository (Github, Gitlab, Bitbucket).
 - Setup Netlify builds triggering from Sanity:
   - **Alternative 1** – Trigger _automatically_ when Sanity content is published using webhooks in [Netlify](https://docs.netlify.com/configure-builds/build-hooks/) and [Sanity](https://www.sanity.io/docs/webhooks).
