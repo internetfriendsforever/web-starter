@@ -17,7 +17,7 @@ module.exports.get = async function (key) {
 }
 
 module.exports.put = async function (key, data) {
-  logger.debug('Caching', key)
+  logger.debug(`Caching ${key}`)
   return cacache.put(cachePath, key, data)
 }
 
