@@ -1,7 +1,8 @@
 const template = require('../utils/template')
+const layout = require('../partials/layout')
 
 module.exports = () => {
-  return template('layout', {
+  return layout({
     title: 'About',
     content: template('about')
   })

@@ -1,26 +1,28 @@
 {
   "scripts": {
-    "build": "node scripts/build.js",
-    "dev": "concurrently './scripts/serve.sh' './scripts/watch.sh'",
+    "build": "./scripts/production.sh",
+    "dev": "./scripts/development.sh",
     "clean": "rm -rf dist .cache"
   },
   "dependencies": {
-    "@11ty/eleventy-cache-assets": "^2.0.3",
     "@sanity/block-content-to-html": "^1.3.8",
-    "@sanity/client": "^1.150.7",
+    "@sanity/client": "^2.0.1",
     "@sanity/image-url": "^0.140.19",
+    "cacache": "^15.0.5",
     "mustache": "^4.0.1",
-    "pretty": "^2.0.0"
+    "node-fetch": "^2.6.1",
+    "pretty": "^2.0.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.26.13",
     "chokidar-cli": "^2.1.0",
     "concurrently": "^5.3.0",
-    "eslint": "^7.9.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint": "^7.12.0",
+    "eslint-config-standard": "^15.0.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.2"
   }
 }
