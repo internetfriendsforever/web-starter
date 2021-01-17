@@ -1,7 +1,7 @@
 const sanityClient = require('@sanity/client')
 const imageUrlBuilder = require('@sanity/image-url')
 const blocksToHtml = require('@sanity/block-content-to-html')
-const Cache = require('@11ty/eleventy-cache-assets')
+const cache = require('./cache')
 const config = require('../../../sanity/sanity.json')
 
 const client = sanityClient({
@@ -10,31 +10,40 @@ const client = sanityClient({
   useCdn: false
 })
 
-const queryUrl = query => {
-  const { url, dataset } = client.clientConfig
-  return `${url}/data/query/${dataset}?query=${encodeURIComponent(query)}`
+const fetchFresh = async query => {
+  const key = cache.key(query)
+  const data = await client.fetch(query)
+  cache.put(key, JSON.stringify(data))
+  return data
 }
 
-const fetch = async (query, options = ({
-  duration: '1d',
-  type: 'json'
-})) => {
-  const url = queryUrl(query)
-  const response = await Cache(url, options)
+const fetch = async query => {
+  const key = cache.key(query)
 
-  if (response.error) {
-    throw new Error(response.error.description)
+  if (await cache.has(key)) {
+    try {
+      const { data } = await cache.get(key)
+      return JSON.parse(data.toString())
+    } catch (error) {
+      console.warn(`Error parsing cache ${key}. Fetching fresh...`)
+      return fetchFresh(query)
+    }
   } else {
-    return response.result
+    return fetchFresh(query)
   }
 }
 
 const image = source => imageUrlBuilder(client).image(source)
 const html = (blocks, props) => blocksToHtml({ blocks, ...props })
 
+const groq = {
+  notDraft: '!(_id in path("drafts.**"))'
+}
+
 module.exports = {
   client,
   image,
   html,
-  fetch
+  fetch,
+  groq
 }

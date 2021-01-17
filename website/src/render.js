@@ -1,22 +1,25 @@
 const pretty = require('pretty')
 const sanity = require('./utils/sanity')
-const index = require('./views/index')
-const about = require('./views/about')
-const article = require('./views/article')
+
+const pages = {
+  index: require('./pages/index'),
+  about: require('./pages/about'),
+  article: require('./pages/article')
+}
 
 module.exports = async () => {
   const files = {
-    'index.html': index(),
-    'about.html': about()
+    'index.html': pages.index(),
+    'about.html': pages.about()
   }
 
   const articles = await sanity.fetch('*[_type == "article"]._id')
 
   articles.forEach(id => {
-    files[`articles/${id}/index.html`] = article(id)
+    files[`articles/${id}/index.html`] = pages.article(id)
   })
 
-  // Render in paralell
+  // Render in parallell
   const promises = Object.values(files)
   const values = await Promise.all(promises)
 
