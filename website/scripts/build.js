@@ -1,44 +1,29 @@
-console.log('Build started')
-console.time('Build complete')
-
-const fs = require('fs')
 const path = require('path')
-const child = require('child_process')
+const write = require('../utils/write')
+const logger = require('../utils/logger')
+
+logger.info('Build started')
+
+const startTime = Date.now()
 
 build(path.join(__dirname, '..')).catch(error => {
-  console.log(error)
+  logger.error(error.toString())
+  console.error(error)
   process.exit(1)
 })
 
 async function build (project) {
   const dist = path.join(project, 'dist')
   const src = path.join(project, 'src')
-
-  child.execSync(`mkdir -p ${dist}`)
-  child.execSync(`rsync -r ${path.join(src, 'assets')} ${dist}`)
-
   const files = await (require(path.join(src, 'render')))()
+  const keys = Object.keys(files)
 
-  await Object.keys(files).map(file => {
+  await keys.map(file => {
     const body = files[file]
     return write(dist, file, body)
   })
 
-  console.timeEnd('Build complete')
-}
+  const elapsed = Date.now() - startTime
 
-function write (dir, file, body) {
-  const out = path.join(dir, file)
-
-  return new Promise((resolve, reject) => {
-    console.log('Writing', file)
-    child.execSync(`mkdir -p ${path.dirname(out)}`)
-    fs.writeFile(out, body, error => {
-      if (error) {
-        reject(error)
-      } else {
-        resolve()
-      }
-    })
-  })
+  logger.info(`Built ${keys.length} pages in ${elapsed}ms`)
 }
