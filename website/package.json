@@ -10,7 +10,6 @@
     "@sanity/image-url": "^0.140.19",
     "cacache": "^15.0.5",
     "mustache": "^4.0.1",
-    "node-fetch": "^2.6.1",
     "pretty": "^2.0.0",
     "winston": "^3.3.3"
   },
