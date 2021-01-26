@@ -1,20 +1,41 @@
 const fs = require('fs')
 const path = require('path')
-const child = require('child_process')
+const mkdirp = require('mkdirp')
 const logger = require('../utils/logger')
 
-module.exports = function write (dir, file, body) {
-  const out = path.join(dir, file)
+module.exports = async function write (dist, files) {
+  const keys = Object.keys(files)
 
-  return new Promise((resolve, reject) => {
-    logger.debug(`Writing: ${file}`)
-    child.execSync(`mkdir -p ${path.dirname(out)}`)
-    fs.writeFile(out, body, error => {
-      if (error) {
-        reject(error)
-      } else {
-        resolve()
-      }
+  // Ensure folders
+  await Promise.all(
+    keys
+      .map(path.dirname)
+      .map(dir => path.join(dist, dir))
+      .filter(isUnique)
+      .map(mkdirp)
+  )
+
+  // Write files
+  return Promise.all(
+    keys.map(key => {
+      const out = path.join(dist, key)
+      const body = files[key]
+
+      return new Promise((resolve, reject) => {
+        logger.debug(`Writing: ${key}`)
+
+        fs.writeFile(out, body, error => {
+          if (error) {
+            reject(error)
+          } else {
+            resolve()
+          }
+        })
+      })
     })
-  })
+  )
+}
+
+function isUnique (value, index, self) {
+  return self.indexOf(value) === index
 }

@@ -3,4 +3,5 @@ npx chokidar \
   "build.js" \
   --command 'npm run build' \
   --initial \
-  --debounce 20
+  --debounce 20 \
+  --silent

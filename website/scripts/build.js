@@ -15,15 +15,13 @@ build(path.join(__dirname, '..')).catch(error => {
 async function build (project) {
   const dist = path.join(project, 'dist')
   const src = path.join(project, 'src')
-  const files = await (require(path.join(src, 'render')))()
-  const keys = Object.keys(files)
+  const render = require(path.join(src, 'render'))
+  const files = await render()
 
-  await keys.map(file => {
-    const body = files[file]
-    return write(dist, file, body)
-  })
+  await write(dist, files)
 
+  const count = Object.keys(files).length
   const elapsed = Date.now() - startTime
 
-  logger.info(`Built ${keys.length} pages in ${elapsed}ms`)
+  logger.info(`Built ${count} pages in ${elapsed}ms`)
 }
