@@ -15,8 +15,8 @@ module.exports = async () => {
     const name = path.basename(template, path.extname(template))
 
     // Get data if template module exists
-    const handler = requireIfExists(path.join(folder, name))
-    const data = handler ? await handler() : {}
+    const script = requireIfExists(path.join(folder, name))
+    const data = script ? await script() : {}
 
     // Render template
     const source = fs.readFileSync(path.join(folder, template), 'utf-8')
