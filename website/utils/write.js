@@ -12,7 +12,7 @@ module.exports = async function write (dist, files) {
       .map(path.dirname)
       .map(dir => path.join(dist, dir))
       .filter(isUnique)
-      .map(mkdirp)
+      .map(dir => mkdirp(dir))
   )
 
   // Write files
