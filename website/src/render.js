@@ -56,9 +56,9 @@ function requireIfExists (path) {
   return null
 }
 
-function resolveIfExists (script) {
+function resolveIfExists (path) {
   try {
-    return require.resolve(script)
+    return require.resolve(path)
   } catch (error) {
     return null
   }
