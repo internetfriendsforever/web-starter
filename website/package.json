@@ -9,6 +9,7 @@
     "@sanity/client": "^2.0.1",
     "@sanity/image-url": "^0.140.19",
     "cacache": "^15.0.5",
+    "glob": "^7.1.6",
     "mkdirp": "^1.0.4",
     "mustache": "^4.0.1",
     "pretty": "^2.0.0",

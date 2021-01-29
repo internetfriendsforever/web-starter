@@ -1,23 +1,30 @@
+const fs = require('fs')
+const path = require('path')
 const pretty = require('pretty')
-const sanity = require('./utils/sanity')
-
-const pages = {
-  index: require('./pages/index'),
-  about: require('./pages/about'),
-  article: require('./pages/article')
-}
+const glob = require('glob')
+const Mustache = require('mustache')
 
 module.exports = async () => {
-  const files = {
-    'index.html': pages.index(),
-    'about.html': pages.about()
+  const files = {}
+
+  const folder = path.join(__dirname, 'pages')
+  const templates = glob.sync('**/*.mustache', { cwd: folder })
+
+  for (const template of templates) {
+    // Strip template extension
+    const name = path.basename(template, path.extname(template))
+
+    // Get data if template module exists
+    const handler = requireIfExists(path.join(folder, name))
+    const data = handler ? await handler() : {}
+
+    // Render template
+    const source = fs.readFileSync(path.join(folder, template), 'utf-8')
+    const output = Mustache.render(source, data)
+    const outputName = name + '.html'
+
+    files[outputName] = output
   }
-
-  const articles = await sanity.fetch('*[_type == "article"]._id')
-
-  articles.forEach(id => {
-    files[`articles/${id}/index.html`] = pages.article(id)
-  })
 
   // Render in parallell
   const promises = Object.values(files)
@@ -37,4 +44,22 @@ module.exports = async () => {
   }
 
   return files
+}
+
+function requireIfExists (path) {
+  const resolved = resolveIfExists(path)
+
+  if (resolved) {
+    return require(resolved)
+  }
+
+  return null
+}
+
+function resolveIfExists (script) {
+  try {
+    return require.resolve(script)
+  } catch (error) {
+    return null
+  }
 }
