@@ -11,8 +11,16 @@ module.exports = async () => {
   const templates = glob.sync('**/*.mustache', { cwd: folder })
 
   for (const template of templates) {
-    // Strip template extension
-    const name = path.basename(template, path.extname(template))
+    // Name without extension
+    const name = path.join(
+      path.dirname(template),
+      path.basename(template, path.extname(template))
+    )
+
+    console.log({
+      template,
+      name
+    })
 
     // Get data if template module exists
     const script = requireIfExists(path.join(folder, name))
