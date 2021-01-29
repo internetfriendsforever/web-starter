@@ -1,4 +1,5 @@
 const pretty = require('pretty')
+const logger = require('../utils/logger')
 const sanity = require('./utils/sanity')
 
 const pages = {
@@ -26,6 +27,9 @@ module.exports = async () => {
   Object.keys(files).forEach((key, i) => {
     files[key] = values[i]
   })
+
+  // Print number of fetch requests to Sanity API
+  logger.debug(`Sanity queries performed: ${sanity.fetchCount()}`)
 
   // Make html pretty
   for (const key in files) {

@@ -10,12 +10,17 @@ const client = sanityClient({
   useCdn: false
 })
 
+let count = 0
+
 const fetchFresh = async query => {
+  count++
   const key = cache.key(query)
   const data = await client.fetch(query)
   cache.put(key, JSON.stringify(data))
   return data
 }
+
+const fetchCount = () => count
 
 const fetch = async query => {
   const key = cache.key(query)
@@ -45,5 +50,6 @@ module.exports = {
   image,
   html,
   fetch,
+  fetchCount,
   groq
 }
