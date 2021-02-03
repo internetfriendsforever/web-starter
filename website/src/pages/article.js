@@ -1,5 +1,6 @@
-module.exports = null
+module.exports = () => null
 
+// const html = require('../utils/html')
 // const sanity = require('../utils/sanity')
 
 // module.exports = async id => {
@@ -12,5 +13,8 @@ module.exports = null
 //     id
 //   })
 
-//   return article
+//   return html`
+//     <a href="/">Back to home</a>
+//     <h1>${article.title}</h1>
+//   `
 // }
