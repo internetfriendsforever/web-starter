@@ -10,15 +10,18 @@ const client = sanityClient({
   useCdn: false
 })
 
-const fetchFresh = async query => {
-  const key = cache.key(query)
-  const data = await client.fetch(query)
-  cache.put(key, JSON.stringify(data))
+const fetchFresh = async (query, params, key) => {
+  const data = await client.fetch(query, params)
+
+  if (key) {
+    cache.put(key, JSON.stringify(data))
+  }
+
   return data
 }
 
-const fetch = async query => {
-  const key = cache.key(query)
+const fetch = async (query, params) => {
+  const key = cache.key(JSON.stringify({ query, params }))
 
   if (await cache.has(key)) {
     try {
@@ -26,10 +29,10 @@ const fetch = async query => {
       return JSON.parse(data.toString())
     } catch (error) {
       console.warn(`Error parsing cache ${key}. Fetching fresh...`)
-      return fetchFresh(query)
+      return fetchFresh(query, params, key)
     }
   } else {
-    return fetchFresh(query)
+    return fetchFresh(query, params, key)
   }
 }
 

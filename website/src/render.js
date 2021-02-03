@@ -8,16 +8,30 @@ module.exports = async () => {
   const folder = path.join(__dirname, 'pages')
   const pages = glob.sync('**/*.js', { cwd: folder })
 
+  // TODO: Render each page in parallell
+  // Don't await for each variants and urls
   for (const file of pages) {
-    const name = path.join(
-      path.dirname(file),
-      path.basename(file, path.extname(file))
-    )
-
     const page = require(path.join(folder, file))
-    const body = page()
 
-    files[name + '.html'] = body
+    // TODO: Warn if variants is set but not url?
+    if (page.variants && page.url) {
+      const variants = await page.variants()
+
+      for (const variant of variants) {
+        const filename = (await page.url(variant)) + '.html'
+        files[filename] = page(variant)
+      }
+    } else {
+      const filename = (page.url
+        ? await page.url()
+        : path.join(
+          path.dirname(file),
+          path.basename(file, path.extname(file))
+        )
+      ) + '.html'
+
+      files[filename] = page()
+    }
   }
 
   // Render in parallell
