@@ -12,7 +12,7 @@ module.exports = async () => {
 
   return layout({
     title: 'Home',
-    main: html`
+    content: html`
       <h1>Hello World!</h1>
 
       <ul>

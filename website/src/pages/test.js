@@ -1,3 +1,3 @@
-module.exports = () => 'test'
+module.exports = () => JSON.stringify({ foo: 'bar' })
 
-module.exports.url = () => 'test-url'
+module.exports.file = () => 'test.json'

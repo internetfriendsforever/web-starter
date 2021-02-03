@@ -1,6 +1,7 @@
 const path = require('path')
 const pretty = require('pretty')
 const glob = require('glob')
+const logger = require('../utils/logger')
 
 module.exports = async () => {
   const files = {}
@@ -8,39 +9,41 @@ module.exports = async () => {
   const folder = path.join(__dirname, 'pages')
   const pages = glob.sync('**/*.js', { cwd: folder })
 
-  // TODO: Render each page in parallell
-  // Don't await for each variants and urls
-  for (const file of pages) {
+  // Build pages in parallell
+  await Promise.all(pages.map(async file => {
     const page = require(path.join(folder, file))
 
-    // TODO: Warn if variants is set but not url?
-    if (page.variants && page.url) {
+    if (typeof page !== 'function') {
+      return logger.warn(`Page ${file} does not export a method`)
+    }
+
+    if (typeof page.variants === 'function') {
+      if (typeof page.file !== 'function') {
+        return logger.warn(`Page ${file} exports variants, but no file method`)
+      }
+
       const variants = await page.variants()
 
+      if (!Array.isArray(variants)) {
+        return logger.warn(`Page ${file} variants method should return an array`)
+      }
+
       for (const variant of variants) {
-        const filename = (await page.url(variant)) + '.html'
-        files[filename] = page(variant)
+        files[await page.file(variant)] = await page(variant)
       }
     } else {
-      const filename = (page.url
-        ? await page.url()
-        : path.join(
-          path.dirname(file),
-          path.basename(file, path.extname(file))
-        )
+      let filename = path.join(
+        path.dirname(file),
+        path.basename(file, path.extname(file))
       ) + '.html'
 
-      files[filename] = page()
+      if (typeof page.file === 'function') {
+        filename = await page.file()
+      }
+
+      files[filename] = await page()
     }
-  }
-
-  // Render in parallell
-  const promises = Object.values(files)
-  const values = await Promise.all(promises)
-
-  Object.keys(files).forEach((key, i) => {
-    files[key] = values[i]
-  })
+  }))
 
   // Make html pretty
   for (const key in files) {
