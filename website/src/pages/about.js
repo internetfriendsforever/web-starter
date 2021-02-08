@@ -6,7 +6,15 @@ module.exports = () => layout({
   title: 'About',
   content: html`
     <a href="/">Back to home</a>
+
     <h1>About page</h1>
+
     ${number()}
+
+    ${[
+      number(),
+      number(),
+      number()
+    ]}
   `
 })
