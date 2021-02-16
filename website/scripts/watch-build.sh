@@ -1,5 +1,5 @@
 npx chokidar \
-  "src/**/*.(js|mustache)" \
+  "src/**/*.js" \
   "build.js" \
   --ignore 'src/assets/**/*.*' \
   --command 'node scripts/build.js && npx browser-sync reload --port 8000' \
