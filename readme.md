@@ -26,6 +26,7 @@ You should have the following tools installed on your computer:
 - [Node.js](https://nodejs.org/) and [NPM](https://docs.npmjs.com/), preferably installed with [NVM](https://github.com/nvm-sh/nvm)
 - [Git](https://git-scm.com/) for source control management
 - A text editor for working with code ([Atom](https://atom.io/), [Sublime Text](https://www.sublimetext.com/), [Visual Studio Code](https://code.visualstudio.com/), [GNU Nano](https://en.wikipedia.org/wiki/GNU_nano), [Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)), [Emacs](https://en.wikipedia.org/wiki/Emacs))
+- For tips on syntax highlighting, see [editing](#editing).
 
 ## Setup
 
@@ -84,3 +85,34 @@ In your terminal:
 
 - `cd /path/to/project/sanity`
 - `sanity deploy`
+
+## Editing
+
+### HTML syntax highlighting with tagged template literals in Sublime Text 3
+
+Use [Sublime’s package manager](https://packagecontrol.io/installation) to install JSCustom.
+
+Go to **Preferences → Package settings → JS Custom → Settings** and update or create the following configuration:
+
+```
+{
+  "configurations":
+  {
+    "Template literals":
+    {
+      "custom_templates":
+      {
+        "tags": {
+          "html": "scope:text.html.basic"
+        }
+      }
+    }
+  }
+}
+```
+
+Go to **Preferences → Package settings → JS Custom → Rebuild syntaxes** and restart Sublime. You might have to close and reopen your files to get syntax highlighting to work.
+
+For more details on customizing JS Custom, see the [JS Custom GitHub repository](https://github.com/Thom1729/Sublime-JS-Custom#js-custom).
+
+Happy coding!
