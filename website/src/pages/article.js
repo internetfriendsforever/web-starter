@@ -1,6 +1,7 @@
 const html = require('../utils/html')
 const sanity = require('../utils/sanity')
 const layout = require('../partials/layout')
+const articlesModel = require('../models/articles')
 
 module.exports = article => layout({
   title: article.title,
@@ -16,14 +17,7 @@ module.exports = article => layout({
   `
 })
 
-module.exports.variants = () => sanity.fetch(`
-  *[_type == "article"]{
-    _id,
-    title,
-    image,
-    body
-  }
-`)
+module.exports.variants = () => articlesModel.getAll()
 
 module.exports.file = article => (
   `articles/${article._id}.html`
