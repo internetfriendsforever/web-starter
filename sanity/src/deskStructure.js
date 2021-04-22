@@ -31,6 +31,7 @@ export default () =>
 
       S.listItem()
         .title('Site settings')
+        .id('site-settings')
         .child(
           S.editor()
             .schemaType('site')
