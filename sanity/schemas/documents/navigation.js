@@ -7,19 +7,9 @@ export default {
   },
   fields: [
     {
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-      hidden: true
-    },
-
-    {
-      name: 'frontPage',
-      title: 'Front page',
-      type: 'reference',
-      to: [
-        { type: 'page' }
-      ]
+      name: 'title',
+      title: 'Title',
+      type: 'string'
     },
 
     {
