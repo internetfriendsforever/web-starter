@@ -1,5 +1,6 @@
 const sanity = require('../utils/sanity')
 const html = require('../utils/html')
+const navigation = require('./navigation')
 
 module.exports = async ({ title, content }) => {
   const site = await sanity.fetch(`
@@ -31,6 +32,7 @@ module.exports = async ({ title, content }) => {
         <link rel="stylesheet" href="/assets/styles.css">
       </head>
       <body>
+        ${navigation()}
         ${content}
 
         <footer>
