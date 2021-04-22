@@ -4,11 +4,11 @@ const number = require('../partials/number')
 const counter = require('../partials/counter')
 
 module.exports = () => layout({
-  title: 'About',
+  title: 'Custom',
   content: html`
     <a href="/">Back to home</a>
 
-    <h1>About page</h1>
+    <h1>Custom page</h1>
 
     <h2>Async partial</h2>
 
