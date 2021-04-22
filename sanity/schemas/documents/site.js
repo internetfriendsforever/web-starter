@@ -7,6 +7,16 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string'
+    },
+    {
+      name: 'metadata',
+      title: 'Metadata',
+      type: 'metadata'
+    },
+    {
+      name: 'appearance',
+      title: 'Appearance',
+      type: 'appearance'
     }
   ]
 }
