@@ -5,16 +5,29 @@ export default () =>
     .title('Content desk')
     .showIcons(false)
     .items([
-      ...S.documentTypeListItems().filter(
-        listItem =>
-          ![
-            'site'
-          ].includes(
-            listItem.getId()
-          )
-      ),
+      S.listItem()
+        .title('Pages')
+        .schemaType('page')
+        .child(
+          S.documentTypeList('page').title('Pages')
+        ),
+
+      S.listItem()
+        .title('Articles')
+        .schemaType('article')
+        .child(
+          S.documentTypeList('article').title('Articles')
+        ),
 
       S.divider(),
+
+      S.listItem()
+        .title('Navigation')
+        .child(
+          S.editor()
+            .schemaType('navigation')
+            .documentId('main-navigation')
+        ),
 
       S.listItem()
         .title('Site settings')
@@ -22,5 +35,19 @@ export default () =>
           S.editor()
             .schemaType('site')
             .documentId('default-site')
-        )
+        ),
+
+      S.divider(),
+
+      ...S.documentTypeListItems().filter(
+        listItem =>
+          ![
+            'site',
+            'page',
+            'article',
+            'navigation'
+          ].includes(
+            listItem.getId()
+          )
+      )
     ])
