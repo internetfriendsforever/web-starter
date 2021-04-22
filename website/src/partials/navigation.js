@@ -23,8 +23,8 @@ module.exports = async () => {
     `
   }
 
-  function navigationChildren (children) {
-    if (children && children.length > 0) {
+  function navigationChildren (children = []) {
+    if (children.length) {
       return html`
         <ul>
           ${children.map(item => html`
