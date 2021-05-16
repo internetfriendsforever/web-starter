@@ -1,8 +1,45 @@
-body {
-  background: gold;
+html {
+  font-size: var(--font-size-normal);
+  font-family: var(--font-stack-primary);
 }
 
-footer {
-  border-top: 1px solid;
-  margin: 1em 0;
+h1 {
+  color: var(--color-primary);
+}
+
+/* Links */
+
+a:not([class]) {
+  color: var(--color-link);
+  text-decoration-color: var(--color-link);
+}
+
+a:not([class]):visited {
+  color: var(--color-link--visited);
+}
+
+a:not([class]):active {
+  color: var(--color-link--active);
+}
+
+/* Layout */
+
+.wrapper {
+  padding: var(--spacing-vertical) var(--spacing-horizontal);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  flex-grow: 1;
+}
+
+
+/* Components */
+.sub-nav-list {
+  padding-left: var(--spacing-horizontal--sm);
+  list-style: none;
 }

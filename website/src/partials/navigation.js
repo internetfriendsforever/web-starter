@@ -26,7 +26,7 @@ module.exports = async () => {
   function navigationChildren (children = []) {
     if (children.length) {
       return html`
-        <ul>
+        <ul class="sub-nav-list">
           ${children.map(item => html`
             <li>${navigationItem(item)}</li>
           `)}

@@ -30,13 +30,24 @@ module.exports = async ({ title, content }) => {
         <title>${titleString(site, title)}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/assets/reset.css">
+        <link rel="stylesheet" href="/assets/theme.css">
         <link rel="stylesheet" href="/assets/styles.css">
       </head>
       <body>
-        ${navigation()}
-        ${content}
+        <header class="wrapper stack">
+          <div class="box">${site.title}</div>
 
-        <footer>
+          <div class="box">
+            ${navigation()}
+          </div>
+        </header>
+
+        <main class="wrapper">
+          ${content}
+        </main>
+
+        <footer class="wrapper">
           <p>
             Happy coding – <a href="https://internetfriendsforever.com">internetfriendsforever</a>
           </p>
