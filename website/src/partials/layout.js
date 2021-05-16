@@ -49,7 +49,7 @@ module.exports = async ({ title, content }) => {
 
         <footer class="wrapper">
           <p>
-            Happy coding – <a href="https://internetfriendsforever.com">internetfriendsforever</a>
+            Happy coding – <a href="https://internetfriendsforever.com" class="nav-link">internetfriendsforever</a>
           </p>
         </footer>
       </body>

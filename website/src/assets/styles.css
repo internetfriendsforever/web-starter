@@ -3,6 +3,7 @@
 html {
   font-size: var(--font-size-normal);
   font-family: var(--font-stack-primary);
+  color: var(--color-text);
 }
 
 body {
@@ -10,9 +11,10 @@ body {
 }
 
 h1 {
-  color: var(--color-primary);
   line-height: var(--line-height--small);
   font-size: var(--font-size-h1);
+  /* color: var(--color-text--dark); */
+  font-weight: 300;
 }
 
 h2 {
@@ -21,7 +23,7 @@ h2 {
 
 /* Links */
 
-a:not([class]) {
+a {
   color: var(--color-link);
   text-decoration-color: var(--color-link);
 }
