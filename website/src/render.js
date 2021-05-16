@@ -6,30 +6,30 @@ const logger = require('../utils/logger')
 module.exports = async () => {
   const files = {}
 
-  const folder = path.join(__dirname, 'pages')
-  const pages = glob.sync('**/*.js', { cwd: folder })
+  const folder = path.join(__dirname, 'routes')
+  const routes = glob.sync('**/*.js', { cwd: folder })
 
-  // Build pages in parallell
-  await Promise.all(pages.map(async file => {
-    const page = require(path.join(folder, file))
+  // Build routes in parallell
+  await Promise.all(routes.map(async file => {
+    const route = require(path.join(folder, file))
 
-    if (typeof page !== 'function') {
-      return logger.warn(`Page ${file} does not export a method`)
+    if (typeof route !== 'function') {
+      return logger.warn(`Route ${file} does not export a method`)
     }
 
-    if (typeof page.variants === 'function') {
-      if (typeof page.file !== 'function') {
-        return logger.warn(`Page ${file} exports variants, but no file method`)
+    if (typeof route.variants === 'function') {
+      if (typeof route.file !== 'function') {
+        return logger.warn(`Route ${file} exports variants, but no file method`)
       }
 
-      const variants = await page.variants()
+      const variants = await route.variants()
 
       if (!Array.isArray(variants)) {
-        return logger.warn(`Page ${file} variants method should return an array`)
+        return logger.warn(`Route ${file} variants method should return an array`)
       }
 
       for (const variant of variants) {
-        files[await page.file(variant)] = await page(variant)
+        files[await route.file(variant)] = await route(variant)
       }
     } else {
       let filename = path.join(
@@ -37,11 +37,11 @@ module.exports = async () => {
         path.basename(file, path.extname(file))
       ) + '.html'
 
-      if (typeof page.file === 'function') {
-        filename = await page.file()
+      if (typeof route.file === 'function') {
+        filename = await route.file()
       }
 
-      files[filename] = await page()
+      files[filename] = await route()
     }
   }))
 

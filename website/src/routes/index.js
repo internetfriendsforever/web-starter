@@ -12,7 +12,7 @@ module.exports = async () => {
 
       <ul>
         <li>
-          <a href="/about">About</a>
+          <a href="/custom">Custom page</a>
         </li>
       </ul>
 
