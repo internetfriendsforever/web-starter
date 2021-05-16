@@ -19,6 +19,8 @@
   --unit-4xs: calc(var(--unit-normal) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio));
 
   /* Fonts */
+  --line-height-normal: 1.45454545;
+  --line-height-small: 1.2;
   --font-stack-system: -apple-system, blinkmacsystemfont, segoe ui, 'helvetica neue', helvetica, ubuntu, roboto, noto, arial, sans-serif;
 
   /* Colors */
@@ -33,8 +35,14 @@
 /* Abstract/semantic values – only refer to named raw values */
 
 :root { /* stylelint-disable-line no-duplicate-selectors */
-  /* Fonts */
+  /* Typography */
+  --line-height: var(--line-height-normal);
+  --line-height--small: var(--line-height-small);
   --font-size-normal: var(--unit-normal);
+  --font-size-h1: var(--unit-2xl);
+  --font-size-h2: var(--unit-xl);
+  --font-size-h3: var(--unit-large);
+  --font-size-h4: var(--unit-normal);
   --font-stack-primary: var(--font-stack-system);
 
   /* Colors */
