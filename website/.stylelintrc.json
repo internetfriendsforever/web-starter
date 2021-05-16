@@ -1,0 +1,17 @@
+{
+  "extends": "stylelint-config-standard",
+  "folders": [
+    {
+      "path": "src/assets/"
+    }
+  ],
+  "rules": {
+    "indentation": 2,
+    "max-nesting-depth": 2,
+    "max-empty-lines": 2,
+    "declaration-no-important": true,
+    "block-closing-brace-newline-after": "always",
+    "block-no-empty": true,
+    "color-hex-case": "lower"
+  }
+}
