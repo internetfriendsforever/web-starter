@@ -55,6 +55,7 @@
   --spacing-horizontal: var(--unit-xl);
   --spacing-horizontal--sm: var(--unit-normal);
   --spacing-vertical: var(--unit-xl);
+  --spacing-vertical--sm: var(--unit-normal);
 }
 
 
