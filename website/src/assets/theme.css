@@ -1,0 +1,52 @@
+/* Raw values */
+
+:root {
+  /* Units */
+  --unit-ratio: 1.25;
+  --unit-7xl: calc(var(--unit-normal) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio));
+  --unit-6xl: calc(var(--unit-normal) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio));
+  --unit-5xl: calc(var(--unit-normal) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio));
+  --unit-4xl: calc(var(--unit-normal) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio));
+  --unit-3xl: calc(var(--unit-normal) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio));
+  --unit-2xl: calc(var(--unit-normal) * var(--unit-ratio) * var(--unit-ratio) * var(--unit-ratio));
+  --unit-xl: calc(var(--unit-normal) * var(--unit-ratio) * var(--unit-ratio));
+  --unit-lg: calc(var(--unit-normal) * var(--unit-ratio));
+  --unit-normal: 18px;
+  --unit-sm: calc(var(--unit-normal) / var(--unit-ratio));
+  --unit-xs: calc(var(--unit-normal) / var(--unit-ratio) / var(--unit-ratio));
+  --unit-2xs: calc(var(--unit-normal) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio));
+  --unit-3xs: calc(var(--unit-normal) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio));
+  --unit-4xs: calc(var(--unit-normal) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio));
+
+  /* Fonts */
+  --font-stack-system: -apple-system, blinkmacsystemfont, segoe ui, 'helvetica neue', helvetica, ubuntu, roboto, noto, arial, sans-serif;
+
+  /* Colors */
+  --color-yellow: goldenrod;
+  --color-blue: cornflowerblue;
+  --color-darkblue: darkblue;
+  --color-red: darkred;
+  --color-purple: darkviolet;
+}
+
+
+/* Abstract/semantic values – only refer to named raw values */
+
+:root { /* stylelint-disable-line no-duplicate-selectors */
+  /* Fonts */
+  --font-size-normal: var(--unit-normal);
+  --font-stack-primary: var(--font-stack-system);
+
+  /* Colors */
+  --color-primary: var(--color-yellow);
+  --color-link: var(--color-blue);
+  --color-link--active: var(--color-red);
+  --color-link--visited: var(--color-darkblue);
+
+  /* Spacing */
+  --spacing-horizontal: var(--unit-xl);
+  --spacing-horizontal--sm: var(--unit-normal);
+  --spacing-vertical: var(--unit-xl);
+}
+
+
