@@ -25,7 +25,12 @@ h2 {
 
 a {
   color: var(--color-link);
-  text-decoration-color: var(--color-link);
+  text-decoration: none;
+}
+
+a:not([class]) {
+  text-decoration: underline;
+  text-decoration-color: var(--color-link--underline);
 }
 
 a:not([class]):visited {
