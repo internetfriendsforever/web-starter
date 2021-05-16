@@ -1,14 +1,9 @@
 const html = require('../utils/html')
-const sanity = require('../utils/sanity')
 const layout = require('../partials/layout')
+const articlesModel = require('../models/articles')
 
 module.exports = async () => {
-  const articles = await sanity.fetch(`
-    *[_type == "article"]{
-      _id,
-      title
-    }
-  `)
+  const articles = await articlesModel.getAll()
 
   return layout({
     title: 'Home',
