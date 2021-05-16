@@ -29,6 +29,9 @@
   --color-darkblue: darkblue;
   --color-red: darkred;
   --color-purple: darkviolet;
+  --color-darkgray: darkslategray;
+  --color-gray: slategray;
+  --color-lightgray: lightslategray;
 }
 
 
@@ -46,10 +49,13 @@
   --font-stack-primary: var(--font-stack-system);
 
   /* Colors */
+  --color-text: var(--color-gray);
+  --color-text--light: var(--color-lightgray);
+  --color-text--dark: var(--color-darkgray);
   --color-primary: var(--color-yellow);
   --color-link: var(--color-blue);
   --color-link--active: var(--color-red);
-  --color-link--visited: var(--color-darkblue);
+  --color-link--visited: var(--color-purple);
 
   /* Spacing */
   --spacing-horizontal: var(--unit-xl);

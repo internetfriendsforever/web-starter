@@ -18,7 +18,7 @@ module.exports = async () => {
 
   function navigationItem (item) {
     return html`
-      <a href="/${item.target.slug.current}">${item.target.title}</a>
+      <a href="/${item.target.slug.current}" class="nav-link">${item.target.title}</a>
       ${navigationChildren(item.children)}
     `
   }
