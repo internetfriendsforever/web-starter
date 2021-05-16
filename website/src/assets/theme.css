@@ -45,6 +45,7 @@
   --line-height: var(--line-height-normal);
   --line-height--small: var(--line-height-small);
   --font-size-normal: var(--unit-normal);
+  --font-size-small: var(--unit-sm);
   --font-size-h1: var(--unit-4xl);
   --font-size-h2: var(--unit-2xl);
   --font-size-h3: var(--unit-large);
