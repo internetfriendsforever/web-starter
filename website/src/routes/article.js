@@ -7,19 +7,19 @@ module.exports = article => layout({
   title: article.title,
   activePath: `articles/${article._id}`,
   content: html`
-    <nav class="nav-breadcrumbs">
-      <a href="/">Back to home</a>
-    </nav>
+    <article class="stack">
+      <nav class="nav-breadcrumbs">
+        <a href="/">Back to home</a>
+      </nav>
 
-    <h1>${article.title}</h1>
+      <h1>${article.title}</h1>
 
-    <p>${article.slug}</p>
+      ${article.image && html`
+        <img src="${sanity.image(article.image)}" />
+      `}
 
-    ${article.image && html`
-      <img src="${sanity.image(article.image)}" />
-    `}
-
-    ${article.body && sanity.html(article.body)}
+      ${article.body && sanity.html(article.body)}
+    </article>
   `
 })
 
