@@ -7,6 +7,7 @@ module.exports = async () => {
 
   return layout({
     title: 'Home',
+    slug: '/',
     content: html`
       <h1>Hello World!</h1>
 

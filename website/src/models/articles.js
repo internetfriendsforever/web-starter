@@ -4,6 +4,7 @@ function getAll () {
   return groq`
     *[_type == "article"]{
       _id,
+      slug,
       title,
       image,
       body

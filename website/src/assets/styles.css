@@ -41,6 +41,10 @@ a:not([class]):active {
   color: var(--color-link--active);
 }
 
+.link-active {
+  font-weight: bold;
+}
+
 /* Layout */
 
 .wrapper {
@@ -50,9 +54,6 @@ a:not([class]):active {
 .stack {
   display: grid;
   gap: var(--spacing-horizontal--sm) var(--spacing-vertical--sm);
-}
-
-.box {
 }
 
 
