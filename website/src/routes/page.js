@@ -6,13 +6,18 @@ module.exports = page => layout({
   title: page.title,
   currentPath: page.slug.current,
   content: html`
-    <a href="/">Back to home</a>
-    <h1>${page.title}</h1>
-    <p>${page.slug.current}</p>
+    <section class="stack">
+      <nav class="nav-breadcrumbs">
+        <a href="/">Back to home</a>
+      </nav>
 
-    ${page.sections && html`
-      <p>This page has ${page.sections.length} sections</p>
-    `}
+      <h1>${page.title}</h1>
+      <p>${page.slug.current}</p>
+
+      ${page.sections && html`
+        <p>This page has ${page.sections.length} sections</p>
+      `}
+    </section>
   `
 })
 
