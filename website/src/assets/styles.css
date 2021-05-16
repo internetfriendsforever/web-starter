@@ -72,6 +72,10 @@ a:not([class]):active {
   list-style: none;
 }
 
+.nav-breadcrumbs {
+  font-size: var(--font-size-small);
+}
+
 .header {
   background: var(--color-background--dark);
   color: var(--color-white);

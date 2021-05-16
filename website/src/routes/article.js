@@ -7,9 +7,14 @@ module.exports = article => layout({
   title: article.title,
   activePath: `articles/${article._id}`,
   content: html`
-    <a href="/">Back to home</a>
+    <nav class="nav-breadcrumbs">
+      <a href="/">Back to home</a>
+    </nav>
+
     <h1>${article.title}</h1>
+
     <p>${article.slug}</p>
+
     ${article.image && html`
       <img src="${sanity.image(article.image)}" />
     `}
