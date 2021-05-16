@@ -1,7 +1,7 @@
 const html = require('../utils/html')
 const sanity = require('../utils/sanity')
 
-module.exports = async () => {
+module.exports = async ({ className = '', currentClassName = '', currentPath }) => {
   const navigation = await sanity.fetch(`
     *[_type == "navigation"]{
       _id,
@@ -17,8 +17,11 @@ module.exports = async () => {
   if (!navigation) { return null }
 
   function navigationItem (item) {
+    const slug = item.target.slug.current
+    const currentClass = slug === currentPath ? currentClassName : ''
+
     return html`
-      <a href="/${item.target.slug.current}" class="nav-link">${item.target.title}</a>
+      <a href="/${slug}" class="${className} ${currentClass}">${item.target.title}</a>
       ${navigationChildren(item.children)}
     `
   }

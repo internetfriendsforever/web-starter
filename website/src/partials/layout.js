@@ -2,7 +2,7 @@ const sanity = require('../utils/sanity')
 const html = require('../utils/html')
 const navigation = require('./navigation')
 
-module.exports = async ({ title, content }) => {
+module.exports = async ({ title, currentPath, content }) => {
   const site = await sanity.fetch(`
     *[_id == "default-site"]{
       _id,
@@ -39,7 +39,10 @@ module.exports = async ({ title, content }) => {
           <div class="box">${site.title}</div>
 
           <div class="box">
-            ${navigation()}
+            ${navigation({
+              currentPath: currentPath,
+              currentClassName: 'link-active'
+            })}
           </div>
         </header>
 
