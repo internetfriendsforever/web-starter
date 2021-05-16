@@ -25,6 +25,7 @@
 
   /* Colors */
   --color-yellow: goldenrod;
+  --color-lightblue: lightskyblue;
   --color-blue: cornflowerblue;
   --color-darkblue: darkblue;
   --color-red: darkred;
@@ -54,6 +55,7 @@
   --color-text--dark: var(--color-darkgray);
   --color-primary: var(--color-yellow);
   --color-link: var(--color-blue);
+  --color-link--underline: var(--color-lightblue);
   --color-link--active: var(--color-red);
   --color-link--visited: var(--color-purple);
 
