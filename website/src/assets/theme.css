@@ -17,10 +17,11 @@
   --unit-2xs: calc(var(--unit-normal) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio));
   --unit-3xs: calc(var(--unit-normal) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio));
   --unit-4xs: calc(var(--unit-normal) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio) / var(--unit-ratio));
+  --unit-hairline: 1px;
 
   /* Fonts */
   --line-height-normal: 1.45454545;
-  --line-height-small: 1.2;
+  --line-height-small: 1;
   --font-stack-system: -apple-system, blinkmacsystemfont, segoe ui, 'helvetica neue', helvetica, ubuntu, roboto, noto, arial, sans-serif;
 
   /* Colors */
@@ -33,6 +34,7 @@
   --color-darkgray: darkslategray;
   --color-gray: slategray;
   --color-lightgray: lightslategray;
+  --color-white: hsl(0, 0%, 90%);
 }
 
 
@@ -43,8 +45,8 @@
   --line-height: var(--line-height-normal);
   --line-height--small: var(--line-height-small);
   --font-size-normal: var(--unit-normal);
-  --font-size-h1: var(--unit-2xl);
-  --font-size-h2: var(--unit-xl);
+  --font-size-h1: var(--unit-4xl);
+  --font-size-h2: var(--unit-2xl);
   --font-size-h3: var(--unit-large);
   --font-size-h4: var(--unit-normal);
   --font-stack-primary: var(--font-stack-system);
@@ -54,6 +56,8 @@
   --color-text--light: var(--color-lightgray);
   --color-text--dark: var(--color-darkgray);
   --color-primary: var(--color-yellow);
+  --color-background: var(--color-white);
+  --color-background--dark: #222;
   --color-link: var(--color-blue);
   --color-link--underline: var(--color-lightblue);
   --color-link--active: var(--color-red);

@@ -4,16 +4,17 @@ html {
   font-size: var(--font-size-normal);
   font-family: var(--font-stack-primary);
   color: var(--color-text);
+  height: 100%;
 }
 
 body {
   line-height: var(--line-height);
+  height: 100%;
 }
 
 h1 {
   line-height: var(--line-height--small);
   font-size: var(--font-size-h1);
-  /* color: var(--color-text--dark); */
   font-weight: 300;
 }
 
@@ -41,7 +42,7 @@ a:not([class]):active {
   color: var(--color-link--active);
 }
 
-.link-active {
+.link-current {
   font-weight: bold;
 }
 
@@ -56,9 +57,27 @@ a:not([class]):active {
   gap: var(--spacing-horizontal--sm) var(--spacing-vertical--sm);
 }
 
+.layout {
+  display: grid;
+}
+
+.layout--full-height {
+  min-height: 100%;
+}
+
 
 /* Components */
 .sub-nav-list {
   padding-left: var(--spacing-horizontal--sm);
   list-style: none;
+}
+
+.header {
+  background: var(--color-background--dark);
+  color: var(--color-white);
+}
+
+.footer {
+  background: var(--color-background--dark);
+  color: var(--color-white);
 }

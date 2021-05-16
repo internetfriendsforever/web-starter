@@ -35,26 +35,30 @@ module.exports = async ({ title, currentPath, content }) => {
         <link rel="stylesheet" href="/assets/styles.css">
       </head>
       <body>
-        <header class="wrapper stack">
-          <div class="box">${site.title}</div>
+        <div class="layout layout--full-height">
+          <header class="header wrapper">
+            <div class="stack">
+              <div class="box">${site.title}</div>
 
-          <div class="box">
-            ${navigation({
-              currentPath: currentPath,
-              currentClassName: 'link-active'
-            })}
-          </div>
-        </header>
+              <div class="box">
+                ${navigation({
+                  currentPath: currentPath,
+                  currentClassName: 'link-current'
+                })}
+              </div>
+            </div>
+          </header>
 
-        <main class="wrapper">
-          ${content}
-        </main>
+          <main class="wrapper">
+            ${content}
+          </main>
 
-        <footer class="wrapper">
-          <p>
-            Happy coding – <a href="https://internetfriendsforever.com" class="nav-link">internetfriendsforever</a>
-          </p>
-        </footer>
+          <footer class="footer wrapper">
+            <p>
+              Happy coding – <a href="https://internetfriendsforever.com" class="nav-link">internetfriendsforever</a>
+            </p>
+          </footer>
+        </div>
       </body>
     </html>
   `
