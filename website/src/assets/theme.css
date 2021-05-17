@@ -68,8 +68,10 @@
   /* Spacing */
   --spacing-horizontal: var(--unit-xl);
   --spacing-horizontal--sm: var(--unit-normal);
+  --spacing-horizontal--lg: var(--unit-2xl);
   --spacing-vertical: var(--unit-xl);
   --spacing-vertical--sm: var(--unit-normal);
+  --spacing-vertical--lg: var(--unit-2xl);
 }
 
 
