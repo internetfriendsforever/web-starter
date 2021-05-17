@@ -64,6 +64,7 @@
   --color-link--underline: var(--color-lightblue);
   --color-link--active: var(--color-red);
   --color-link--visited: var(--color-purple);
+  --color-link--hover: green;
 
   /* Spacing */
   --spacing-horizontal: var(--unit-xl);
