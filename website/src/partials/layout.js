@@ -1,14 +1,15 @@
 const sanity = require('../utils/sanity')
+const groq = require('../utils/groq')
 const html = require('../utils/html')
 const navigation = require('./navigation')
 
 module.exports = async ({ title, currentPath, content }) => {
-  const site = await sanity.fetch(`
+  const site = await groq`
     *[_id == "default-site"]{
       _id,
       title
     }[0]
-  `)
+  `.fetch()
 
   function titleString (site, title) {
     const divider = '|'
@@ -43,7 +44,9 @@ module.exports = async ({ title, currentPath, content }) => {
                 ? html`
                   <div class="box">${site.title}</div>
                 `
-                : ''
+                : html`
+                  <div class="box">Web Starter</div>
+                `
               }
 
               <div class="box">
@@ -51,6 +54,7 @@ module.exports = async ({ title, currentPath, content }) => {
                   currentPath: currentPath,
                   currentClassName: 'link-current'
                 })}
+                <a href="/custom" class="nav-link">Custom</a>
               </div>
             </div>
           </header>
