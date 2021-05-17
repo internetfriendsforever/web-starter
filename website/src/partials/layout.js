@@ -13,13 +13,14 @@ module.exports = async ({ title, currentPath, content }) => {
   function titleString (site, title) {
     const divider = '|'
 
-    if (site && title) {
+    if (site && title && site.title) {
       return `${title} ${divider} ${site.title}`
-    } else if (site) {
+    } else if (site && site.title) {
       return site.title
     } else if (title) {
       return `${title}`
     }
+
     return 'Home'
   }
 
@@ -38,7 +39,12 @@ module.exports = async ({ title, currentPath, content }) => {
         <div class="grid grid--full-height">
           <header class="header wrapper">
             <div class="grid grid--gap">
-              <div class="box">${site.title}</div>
+              ${site && site.title
+                ? html`
+                  <div class="box">${site.title}</div>
+                `
+                : ''
+              }
 
               <div class="box">
                 ${navigation({
