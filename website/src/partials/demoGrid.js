@@ -120,14 +120,14 @@ module.exports = () => {
         <div class="box">1</div>
       </div>
 
-      <h3>2+3 column</h3>
+      <h3>2+3 columns</h3>
 
       <div class="grid layout--5-col">
         <div class="box col-span-2">1</div>
         <div class="box col-span-3">2</div>
       </div>
 
-      <h3>3 column</h3>
+      <h3>3 columns</h3>
 
       <div class="grid grid--gap layout--3-col">
         <div class="box col-span-3">
