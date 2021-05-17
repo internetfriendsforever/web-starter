@@ -1,5 +1,6 @@
 const html = require('../utils/html')
 const layout = require('../partials/layout')
+const demoGrid = require('../partials/demoGrid')
 const articlesModel = require('../models/articles')
 
 module.exports = async () => {
@@ -9,7 +10,9 @@ module.exports = async () => {
     title: 'Home',
     slug: '/',
     content: html`
-      <h1>Hello World!</h1>
+      <h1>Cyberspace Industries</h1>
+
+      <h2>Web starter</h2>
 
       <ul>
         <li>
@@ -17,6 +20,7 @@ module.exports = async () => {
         </li>
       </ul>
 
+      <h2>Articles</h2>
       <ul>
         ${articles.map(article => html`
           <li>
@@ -26,6 +30,9 @@ module.exports = async () => {
           </li>
         `)}
       </ul>
+
+      <h2>Layout</h2>
+      ${demoGrid()}
     `
   })
 }

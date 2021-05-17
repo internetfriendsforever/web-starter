@@ -53,17 +53,78 @@ a:not([class]):active {
   padding: var(--spacing-vertical) var(--spacing-horizontal);
 }
 
-.stack {
+.grid {
   display: grid;
-  gap: var(--spacing-horizontal--sm) var(--spacing-vertical--sm);
 }
 
-.layout {
-  display: grid;
+.grid--gap {
+  gap: var(--spacing-horizontal--sm) var(--spacing-vertical--sm);
 }
 
 .layout--full-height {
   min-height: 100%;
+}
+
+.layout--16-col {
+  grid-template-columns: repeat(16, 1fr);
+}
+
+.layout--12-col {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.layout--10-col {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.layout--8-col {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.layout--6-col {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.layout--5-col {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.layout--4-col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.layout--3-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.layout--2-col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.layout--1-col {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3;
+}
+
+.card {
+  display: block;
+  padding: var(--spacing-vertical--sm) var(--spacing-horizontal--sm);
+}
+
+.card--border {
+  border: var(--unit-hairline) solid var(--color-border);
+}
+
+.card--inverted {
+  background: var(--color-text);
+  color: var(--color-background);
 }
 
 

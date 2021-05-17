@@ -33,7 +33,7 @@
   --color-purple: darkviolet;
   --color-darkgray: darkslategray;
   --color-gray: slategray;
-  --color-lightgray: lightslategray;
+  --color-lightgray: hsl(0, 0%, 70%);
   --color-white: hsl(0, 0%, 90%);
 }
 
@@ -57,6 +57,7 @@
   --color-text--light: var(--color-lightgray);
   --color-text--dark: var(--color-darkgray);
   --color-primary: var(--color-yellow);
+  --color-border: var(--color-lightgray);
   --color-background: var(--color-white);
   --color-background--dark: #222;
   --color-link: var(--color-blue);
