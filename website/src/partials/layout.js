@@ -35,9 +35,9 @@ module.exports = async ({ title, currentPath, content }) => {
         <link rel="stylesheet" href="/assets/styles.css">
       </head>
       <body>
-        <div class="layout layout--full-height">
+        <div class="grid grid--full-height">
           <header class="header wrapper">
-            <div class="stack">
+            <div class="grid grid--gap">
               <div class="box">${site.title}</div>
 
               <div class="box">
@@ -56,6 +56,9 @@ module.exports = async ({ title, currentPath, content }) => {
           <footer class="footer wrapper">
             <p>
               Happy coding – <a href="https://internetfriendsforever.com" class="nav-link">internetfriendsforever</a>
+            </p>
+            <p>
+              Cyberspace Industries
             </p>
           </footer>
         </div>
