@@ -4,7 +4,7 @@ A website starter example using the following stack:
 
 - [Sanity](https://www.sanity.io/) backend
 - [JavaScript Tagged Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) templating
-- [Scripts](./scripts) and [utilities](./utils) for build and development
+- [Scripts](./website/scripts) and [utilities](./website/src/utils) for build and development
 - [JavaScript Standard Style](https://standardjs.com/) and [ESLint](https://eslint.org/) for code linting
 
 _No other pre-/post processors or bundlers for JavaScript or CSS (Babel, PostCSS, Sass, Stylus, etc.) are included._
