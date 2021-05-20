@@ -8,7 +8,7 @@ module.exports = () => layout({
   content: html`
     <a href="/">Back to home</a>
 
-    <h1>Custom page</h1>
+    <h1>Custom route</h1>
 
     <h2>Async partial</h2>
 
