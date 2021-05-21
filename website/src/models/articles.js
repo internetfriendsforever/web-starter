@@ -6,7 +6,8 @@ function getAll () {
       _id,
       title,
       image,
-      body
+      body,
+      "url": "articles/" + _id
     }
   `.fetch()
 }

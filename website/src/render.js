@@ -5,9 +5,27 @@ const logger = require('../utils/logger')
 
 module.exports = async () => {
   const files = {}
+  const variants = {}
 
   const folder = path.join(__dirname, 'routes')
   const routes = glob.sync('**/*.js', { cwd: folder })
+
+  // Get route variants
+  await Promise.all(routes.map(async file => {
+    const route = require(path.join(folder, file))
+
+    if (typeof route.variants === 'function') {
+      variants[file] = await route.variants()
+
+      if (!Array.isArray(variants[file])) {
+        return logger.warn(`Route ${file} variants method should return an array`)
+      }
+    }
+  }))
+
+  const context = {
+    variants: Object.values(variants).flat()
+  }
 
   // Build routes in parallell
   await Promise.all(routes.map(async file => {
@@ -17,19 +35,13 @@ module.exports = async () => {
       return logger.warn(`Route ${file} does not export a method`)
     }
 
-    if (typeof route.variants === 'function') {
+    if (file in variants) {
       if (typeof route.file !== 'function') {
         return logger.warn(`Route ${file} exports variants, but no file method`)
       }
 
-      const variants = await route.variants()
-
-      if (!Array.isArray(variants)) {
-        return logger.warn(`Route ${file} variants method should return an array`)
-      }
-
-      for (const variant of variants) {
-        files[await route.file(variant)] = await route(variant)
+      for (const variant of variants[file]) {
+        files[await route.file(variant)] = await route(variant, context)
       }
     } else {
       let filename = path.join(
@@ -41,7 +53,7 @@ module.exports = async () => {
         filename = await route.file()
       }
 
-      files[filename] = await route()
+      files[filename] = await route(context)
     }
   }))
 
