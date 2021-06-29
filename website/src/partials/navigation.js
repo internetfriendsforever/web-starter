@@ -18,7 +18,7 @@ module.exports = async () => {
 
   function navigationItem (item) {
     return html`
-      <a href="/${item.target.slug.current}">${item.target.title}</a>
+      <a href="/${item.target.slug.current}" class="main-nav-item">${item.target.title}</a>
       ${navigationChildren(item.children)}
     `
   }
@@ -36,7 +36,7 @@ module.exports = async () => {
   }
 
   return html`
-    <nav>
+    <nav class="main-nav">
       ${navigation.items.map(item => html`
         ${navigationItem(item)}
       `)}
