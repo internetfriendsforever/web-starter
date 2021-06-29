@@ -32,7 +32,7 @@
 
   /* Named colors */
   --color-gray: #707070;
-  --color-gray-light: #dedede;
+  --color-gray-light: #d4cfcf;
   --color-gray-dark: #434343;
   --color-white: whitesmoke;
   --color-indigo: #5258EA;
@@ -94,7 +94,7 @@
   /* Borders */
   --border-width-normal: var(--unit-hairline);
   --border-width-large: var(--unit-small-7);
-  --border-normal: var(--border-width-normal) solid currentcolor;
+  --border-normal: var(--border-width-normal) solid var(--color-text-light);
 }
 
 /* Utility classes */
