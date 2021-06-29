@@ -1,8 +1,34 @@
-body {
-  background: gold;
+html {
+  font-size: var(--font-size-normal);
 }
 
-footer {
-  border-top: 1px solid;
-  margin: 1em 0;
+body {
+  font-family: var(--font-stack-primary);
+  line-height: var(--line-height-normal);
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+a:active {
+  color: var(--color-link-active);
+}
+
+
+.site-header {
+  padding: var(--spacing-vertical) var(--spacing-horizontal);
+  border-bottom: var(--border-normal);
+}
+
+.site-footer {
+  padding: var(--spacing-vertical) var(--spacing-horizontal);
+  border-top: var(--border-normal);
 }

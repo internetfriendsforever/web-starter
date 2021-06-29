@@ -94,6 +94,7 @@
   /* Borders */
   --border-width-normal: var(--unit-hairline);
   --border-width-large: var(--unit-small-7);
+  --border-normal: var(--border-width-normal) solid currentcolor;
 }
 
 /* Utility classes */

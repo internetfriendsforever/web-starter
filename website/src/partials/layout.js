@@ -35,10 +35,13 @@ module.exports = async ({ title, content }) => {
         <link rel="stylesheet" href="/assets/styles.css">
       </head>
       <body>
-        ${navigation()}
+        <header class="site-header">
+          ${navigation()}
+        </header>
+
         ${content}
 
-        <footer>
+        <footer class="site-footer">
           <p>
             Happy coding – <a href="https://internetfriendsforever.com">internetfriendsforever</a>
           </p>
