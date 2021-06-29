@@ -1,17 +1,18 @@
 const html = require('../utils/html')
 const sanity = require('../utils/sanity')
 const layout = require('../partials/layout')
+const sections = require('../partials/sections')
 
-module.exports = page => layout({
+module.exports = (page, context) => layout({
   title: page.title,
   content: html`
-    <main class="text-wrapper">
-      <a href="/">Back to home</a>
-      <h1 class="text-block-heading">${page.title}</h1>
+    <main>
+      <header class="page-header">
+        <a href="/">Back to home</a>
+        <h1 class="text-block-heading">${page.title}</h1>
+      </header>
 
-      ${page.sections && html`
-        <p>This page has ${page.sections.length} sections</p>
-      `}
+      ${sections(page.sections, context)}
     </main>
   `
 })
