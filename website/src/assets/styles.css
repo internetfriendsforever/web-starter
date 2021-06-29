@@ -61,3 +61,7 @@ a:active {
 .portable-text > * + * {
   margin-top: var(--spacing-vertical-small);
 }
+
+.portable-text-figure > * + * {
+  margin-top: var(--spacing-vertical-small-2);
+}

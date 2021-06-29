@@ -1,5 +1,32 @@
+const blocksToHyperScript = require('@sanity/block-content-to-hyperscript')
+const blocksToHtml = require('@sanity/block-content-to-html')
+const h = blocksToHtml.h
 const sanity = require('../utils/sanity')
 const html = require('../utils/html')
+
+const serializers = {
+  types: {
+    imageExtended: props => {
+      console.log(props)
+      const { asset, caption } = props.node
+      const image = sanity.image(asset).width(500)
+
+      const imageUrl = image.url()
+
+      console.log(imageUrl)
+
+      return (
+        h('figure', {
+          className: 'portable-text-figure',
+          children: [
+            h('img', { src: imageUrl }),
+            h('figcaption', { className: 'portable-text-figcaption text-block-small' }, blocksToHyperScript({ blocks: caption }))
+          ]
+        })
+      )
+    }
+  }
+}
 
 module.exports = (sections = [], context) => html`
   ${sections.map((section, index) => {
@@ -18,7 +45,11 @@ module.exports = (sections = [], context) => html`
         return html`
           <section class="section-text">
             <div class="text-wrapper">
-              ${section.content && sanity.html(section.content, { context, className: 'portable-text' })}
+              ${section.content && sanity.html(section.content, {
+                context,
+                className: 'portable-text',
+                serializers
+              })}
             </div>
           </section>
         `
