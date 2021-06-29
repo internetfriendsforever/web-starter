@@ -127,3 +127,11 @@
   font-size: 0.8em;
   background: var(--color-text-light);
 }
+
+.text-color-dark {
+  color: var(--color-text-dark);
+}
+
+.text-color-light {
+  color: var(--color-text-light);
+}
