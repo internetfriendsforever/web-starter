@@ -28,6 +28,8 @@ a:active {
 .site-header {
   padding: var(--spacing-vertical) var(--spacing-horizontal);
   border-bottom: var(--border-normal);
+  display: flex;
+  justify-content: space-between;
 }
 
 .site-footer {
@@ -37,4 +39,12 @@ a:active {
 
 .text-wrapper {
   padding: var(--spacing-vertical-large-2) var(--spacing-horizontal-large-2);
+}
+
+.main-nav {
+  margin: 0 calc(var(--spacing-vertical-small-2) * -1);
+}
+
+.main-nav-item {
+  margin: 0 var(--spacing-vertical-small-2);
 }
