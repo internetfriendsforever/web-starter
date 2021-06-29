@@ -18,7 +18,7 @@ module.exports = (sections = [], context) => html`
         return html`
           <section class="section-text">
             <div class="text-wrapper">
-              ${section.content && sanity.html(section.content, { context })}
+              ${section.content && sanity.html(section.content, { context, className: 'portable-text' })}
             </div>
           </section>
         `
