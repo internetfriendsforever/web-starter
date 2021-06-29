@@ -40,7 +40,7 @@ module.exports = async ({ title, content }) => {
       </head>
       <body>
         <header class="site-header">
-          <b>${title}</b>
+          <b>${site.title}</b>
 
           ${navigation()}
         </header>
