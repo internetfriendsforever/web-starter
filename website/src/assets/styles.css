@@ -32,3 +32,7 @@ a:active {
   padding: var(--spacing-vertical) var(--spacing-horizontal);
   border-top: var(--border-normal);
 }
+
+.text-wrapper {
+  padding: var(--spacing-vertical-large-2) var(--spacing-horizontal-large-2);
+}

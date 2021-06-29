@@ -5,12 +5,14 @@ const layout = require('../partials/layout')
 module.exports = page => layout({
   title: page.title,
   content: html`
-    <a href="/">Back to home</a>
-    <h1>${page.title}</h1>
+    <main class="text-wrapper">
+      <a href="/">Back to home</a>
+      <h1>${page.title}</h1>
 
-    ${page.sections && html`
-      <p>This page has ${page.sections.length} sections</p>
-    `}
+      ${page.sections && html`
+        <p>This page has ${page.sections.length} sections</p>
+      `}
+    </main>
   `
 })
 
