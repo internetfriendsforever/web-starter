@@ -3,7 +3,7 @@ export default {
   title: 'Navigation',
   type: 'document',
   initialValue: {
-    name: 'Navigation'
+    title: 'Main navigation'
   },
   fields: [
     {
