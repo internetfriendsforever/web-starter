@@ -7,7 +7,7 @@ module.exports = context => layout({
     <main class="text-wrapper">
       <a href="/">Back to home</a>
 
-      <h1>Context object</h1>
+      <h1 class="text-block-heading">Context object</h1>
 
       <p>Available as:</p>
       <ul>

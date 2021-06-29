@@ -9,7 +9,7 @@ module.exports = async () => {
     title: 'Home',
     content: html`
       <main class="text-wrapper">
-        <h1>Hello World!</h1>
+        <h1 class="text-block-heading">Hello World!</h1>
 
         <ul>
           <li>

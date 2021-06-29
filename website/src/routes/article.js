@@ -8,7 +8,7 @@ module.exports = article => layout({
   content: html`
     <main class="text-wrapper">
       <a href="/">Back to home</a>
-      <h1>${article.title}</h1>
+      <h1 class="text-block-heading">${article.title}</h1>
 
       ${article.image && html`
         <img src="${sanity.image(article.image)}" />

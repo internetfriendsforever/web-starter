@@ -7,7 +7,7 @@ module.exports = page => layout({
   content: html`
     <main class="text-wrapper">
       <a href="/">Back to home</a>
-      <h1>${page.title}</h1>
+      <h1 class="text-block-heading">${page.title}</h1>
 
       ${page.sections && html`
         <p>This page has ${page.sections.length} sections</p>
