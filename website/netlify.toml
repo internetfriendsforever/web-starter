@@ -1,3 +1,5 @@
+[build.environment]
+  TZ = "Europe/Oslo"
 [build]
   publish = "dist/"
   command = "npm run build"
