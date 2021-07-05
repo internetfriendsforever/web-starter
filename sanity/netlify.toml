@@ -1,6 +1,8 @@
 [build]
   publish = "dist/"
   command = "sanity build"
+[build.environment]
+  TZ = "Europe/Oslo"
 # SPA redirect
 [[redirects]]
   from = "/*"
