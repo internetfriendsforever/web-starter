@@ -2,6 +2,7 @@ import path from 'path'
 import fs from 'fs/promises'
 import pretty from 'pretty'
 import logger from '../utils/logger.js'
+import sanity from './utils/sanity.js'
 
 export default async () => {
   const files = {}
@@ -40,9 +41,11 @@ export default async () => {
         return logger.warn(`Route ${file} exports a "variants" method, but "file" method is missing`)
       }
 
-      for (const variant of variants[file]) {
-        files[await route.file(variant)] = await route.render(variant, context)
-      }
+      return Promise.all(
+        variants[file].map(async variant => {
+          files[await route.file(variant, context)] = await route.render(variant, context)
+        })
+      )
     } else {
       let filename = path.join(
         path.dirname(file),
@@ -56,6 +59,10 @@ export default async () => {
       files[filename] = await route.render(context)
     }
   }))
+
+  const { requests, cached } = sanity.stats()
+
+  logger.info(`${requests} fetch requests (${cached} cached)`)
 
   // Make html pretty
   for (const key in files) {
