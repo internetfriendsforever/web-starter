@@ -18,7 +18,7 @@ export default async () => {
       variants[file] = await route.variants()
 
       if (!Array.isArray(variants[file])) {
-        return logger.warn(`Route ${file} variants method should return an array`)
+        return logger.warn(`Route ${file} "variants" method should resolve to an array`)
       }
     }
   }))
@@ -31,17 +31,17 @@ export default async () => {
   await Promise.all(routes.map(async file => {
     const route = await import(path.join(folder, file))
 
-    if (typeof route.default !== 'function') {
-      return logger.warn(`Route ${file} does not export a method`)
+    if (typeof route.render !== 'function') {
+      return logger.warn(`Route ${file} does not export a "render" method`)
     }
 
     if (file in variants) {
       if (typeof route.file !== 'function') {
-        return logger.warn(`Route ${file} exports variants, but no file method`)
+        return logger.warn(`Route ${file} exports a "variants" method, but "file" method is missing`)
       }
 
       for (const variant of variants[file]) {
-        files[await route.file(variant)] = await route.default(variant, context)
+        files[await route.file(variant)] = await route.render(variant, context)
       }
     } else {
       let filename = path.join(
@@ -53,7 +53,7 @@ export default async () => {
         filename = await route.file()
       }
 
-      files[filename] = await route.default(context)
+      files[filename] = await route.render(context)
     }
   }))
 

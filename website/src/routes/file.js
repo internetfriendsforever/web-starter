@@ -1,3 +1,7 @@
-export default () => JSON.stringify({ foo: 'bar' })
+export function file () {
+  return 'file.json'
+}
 
-export const file = () => 'file.json'
+export function render () {
+  return JSON.stringify({ foo: 'bar' })
+}

@@ -3,29 +3,33 @@ import sanity from '../utils/sanity.js'
 import layout from '../partials/layout.js'
 import sections from '../partials/sections.js'
 
-export default (page, context) => layout({
-  title: page.title,
-  content: html`
-    <main>
-      <header class="page-header">
-        <a href="/">Back to home</a>
-        <h1 class="text-block-heading">${page.title}</h1>
-      </header>
+export function variants () {
+  return sanity.fetch(`
+    *[_type == "page"]{
+      _id,
+      slug,
+      title,
+      sections
+    }
+  `)
+}
 
-      ${sections(page.sections, context)}
-    </main>
-  `
-})
+export function file (variant) {
+  return `${variant.slug.current}.html`
+}
 
-export const variants = () => sanity.fetch(`
-  *[_type == "page"]{
-    _id,
-    slug,
-    title,
-    sections
-  }
-`)
+export function render (variant, context) {
+  return layout({
+    title: variant.title,
+    content: html`
+      <main>
+        <header class="page-header">
+          <a href="/">Back to home</a>
+          <h1 class="text-block-heading">${variant.title}</h1>
+        </header>
 
-export const file = page => (
-  `${page.slug.current}.html`
-)
+        ${sections(variant.sections, context)}
+      </main>
+    `
+  })
+}

@@ -1,26 +1,30 @@
 import html from '../utils/html.js'
 import sanity from '../utils/sanity.js'
 import layout from '../partials/layout.js'
-import articlesModel from '../models/articles.js'
+import * as articlesModel from '../models/articles.js'
 
-export default article => layout({
-  title: article.title,
-  content: html`
-    <main class="text-wrapper">
-      <a href="/">Back to home</a>
-      <h1 class="text-block-heading">${article.title}</h1>
+export function variants () {
+  return articlesModel.getAll()
+}
 
-      ${article.image && html`
-        <img src="${sanity.image(article.image)}" />
-      `}
+export function file (variant) {
+  return `articles/${variant._id}.html`
+}
 
-      ${article.body && sanity.html(article.body)}
-    </main>
-  `
-})
+export function render (variant) {
+  return layout({
+    title: variant.title,
+    content: html`
+      <main class="text-wrapper">
+        <a href="/">Back to home</a>
+        <h1 class="text-block-heading">${variant.title}</h1>
 
-export const variants = () => articlesModel.getAll()
+        ${variant.image && html`
+          <img src="${sanity.image(variant.image)}" />
+        `}
 
-export const file = article => (
-  `articles/${article._id}.html`
-)
+        ${variant.body && sanity.html(variant.body)}
+      </main>
+    `
+  })
+}

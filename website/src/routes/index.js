@@ -1,8 +1,8 @@
 import html from '../utils/html.js'
 import layout from '../partials/layout.js'
-import articlesModel from '../models/articles.js'
+import * as articlesModel from '../models/articles.js'
 
-export default async () => {
+export async function render () {
   const articles = await articlesModel.getAll()
 
   return layout({
