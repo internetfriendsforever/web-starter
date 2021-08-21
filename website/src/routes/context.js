@@ -1,7 +1,7 @@
-const html = require('../utils/html')
-const layout = require('../partials/layout')
+import html from '../utils/html.js'
+import layout from '../partials/layout.js'
 
-module.exports = context => layout({
+export default context => layout({
   title: 'Context',
   content: html`
     <main class="text-wrapper">

@@ -1,4 +1,4 @@
 mkdir -p dist
 npx concurrently \
-  "node scripts/build.js" \
+  "node --experimental-json-modules scripts/build.js" \
   "./scripts/sync-assets.sh"

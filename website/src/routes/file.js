@@ -1,3 +1,3 @@
-module.exports = () => JSON.stringify({ foo: 'bar' })
+export default () => JSON.stringify({ foo: 'bar' })
 
-module.exports.file = () => 'file.json'
+export const file = () => 'file.json'

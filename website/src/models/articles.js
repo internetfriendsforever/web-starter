@@ -1,4 +1,4 @@
-const groq = require('../utils/groq')
+import groq from '../utils/groq.js'
 
 function getAll () {
   return groq`
@@ -12,6 +12,6 @@ function getAll () {
   `.fetch()
 }
 
-module.exports = {
+export default {
   getAll
 }

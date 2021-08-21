@@ -1,9 +1,9 @@
-const fs = require('fs')
-const path = require('path')
-const mkdirp = require('mkdirp')
-const logger = require('../utils/logger')
+import fs from 'fs'
+import path from 'path'
+import mkdirp from 'mkdirp'
+import logger from '../utils/logger.js'
 
-module.exports = async function write (dist, files) {
+export default async function write (dist, files) {
   const keys = Object.keys(files)
 
   // Ensure folders

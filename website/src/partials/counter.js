@@ -1,6 +1,6 @@
-const html = require('../utils/html')
+import html from '../utils/html.js'
 
-module.exports = ({ id, value = 0 }) => html`
+export default ({ id, value = 0 }) => html`
   <div class="counter" id="${id}">
     Counter:
 

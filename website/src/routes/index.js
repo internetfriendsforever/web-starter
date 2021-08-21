@@ -1,8 +1,8 @@
-const html = require('../utils/html')
-const layout = require('../partials/layout')
-const articlesModel = require('../models/articles')
+import html from '../utils/html.js'
+import layout from '../partials/layout.js'
+import articlesModel from '../models/articles.js'
 
-module.exports = async () => {
+export default async () => {
   const articles = await articlesModel.getAll()
 
   return layout({

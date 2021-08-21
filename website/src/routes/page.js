@@ -1,9 +1,9 @@
-const html = require('../utils/html')
-const sanity = require('../utils/sanity')
-const layout = require('../partials/layout')
-const sections = require('../partials/sections')
+import html from '../utils/html.js'
+import sanity from '../utils/sanity.js'
+import layout from '../partials/layout.js'
+import sections from '../partials/sections.js'
 
-module.exports = (page, context) => layout({
+export default (page, context) => layout({
   title: page.title,
   content: html`
     <main>
@@ -17,7 +17,7 @@ module.exports = (page, context) => layout({
   `
 })
 
-module.exports.variants = () => sanity.fetch(`
+export const variants = () => sanity.fetch(`
   *[_type == "page"]{
     _id,
     slug,
@@ -26,6 +26,6 @@ module.exports.variants = () => sanity.fetch(`
   }
 `)
 
-module.exports.file = page => (
+export const file = page => (
   `${page.slug.current}.html`
 )

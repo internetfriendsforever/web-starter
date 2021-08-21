@@ -1,8 +1,8 @@
-const sanityClient = require('@sanity/client')
-const imageUrlBuilder = require('@sanity/image-url')
-const blocksToHtml = require('@sanity/block-content-to-html')
-const cache = require('./cache')
-const config = require('../../../sanity/sanity.json')
+import sanityClient from '@sanity/client'
+import imageUrlBuilder from '@sanity/image-url'
+import blocksToHtml from '@sanity/block-content-to-html'
+import * as cache from './cache.js'
+import config from '../../../sanity/sanity.json'
 
 const client = sanityClient({
   projectId: config.api.projectId,
@@ -43,7 +43,7 @@ const groq = {
   notDraft: '!(_id in path("drafts.**"))'
 }
 
-module.exports = {
+export default {
   client,
   image,
   html,

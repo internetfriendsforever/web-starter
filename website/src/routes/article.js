@@ -1,9 +1,9 @@
-const html = require('../utils/html')
-const sanity = require('../utils/sanity')
-const layout = require('../partials/layout')
-const articlesModel = require('../models/articles')
+import html from '../utils/html.js'
+import sanity from '../utils/sanity.js'
+import layout from '../partials/layout.js'
+import articlesModel from '../models/articles.js'
 
-module.exports = article => layout({
+export default article => layout({
   title: article.title,
   content: html`
     <main class="text-wrapper">
@@ -19,8 +19,8 @@ module.exports = article => layout({
   `
 })
 
-module.exports.variants = () => articlesModel.getAll()
+export const variants = () => articlesModel.getAll()
 
-module.exports.file = article => (
+export const file = article => (
   `articles/${article._id}.html`
 )

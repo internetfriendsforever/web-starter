@@ -1,18 +1,18 @@
-const path = require('path')
-const pretty = require('pretty')
-const glob = require('glob')
-const logger = require('../utils/logger')
+import path from 'path'
+import fs from 'fs/promises'
+import pretty from 'pretty'
+import logger from '../utils/logger.js'
 
-module.exports = async () => {
+export default async () => {
   const files = {}
   const variants = {}
 
-  const folder = path.join(__dirname, 'routes')
-  const routes = glob.sync('**/*.js', { cwd: folder })
+  const folder = new URL(path.join(path.dirname(import.meta.url), 'routes')).pathname
+  const routes = await fs.readdir(folder)
 
   // Get route variants
   await Promise.all(routes.map(async file => {
-    const route = require(path.join(folder, file))
+    const route = await import(path.join(folder, file))
 
     if (typeof route.variants === 'function') {
       variants[file] = await route.variants()
@@ -29,9 +29,9 @@ module.exports = async () => {
 
   // Build routes in parallell
   await Promise.all(routes.map(async file => {
-    const route = require(path.join(folder, file))
+    const route = await import(path.join(folder, file))
 
-    if (typeof route !== 'function') {
+    if (typeof route.default !== 'function') {
       return logger.warn(`Route ${file} does not export a method`)
     }
 
@@ -41,7 +41,7 @@ module.exports = async () => {
       }
 
       for (const variant of variants[file]) {
-        files[await route.file(variant)] = await route(variant, context)
+        files[await route.file(variant)] = await route.default(variant, context)
       }
     } else {
       let filename = path.join(
@@ -53,7 +53,7 @@ module.exports = async () => {
         filename = await route.file()
       }
 
-      files[filename] = await route(context)
+      files[filename] = await route.default(context)
     }
   }))
 

@@ -1,9 +1,9 @@
-const html = require('../utils/html')
-const layout = require('../partials/layout')
-const number = require('../partials/number')
-const counter = require('../partials/counter')
+import html from '../utils/html.js'
+import layout from '../partials/layout.js'
+import number from '../partials/number.js'
+import counter from '../partials/counter.js'
 
-module.exports = () => layout({
+export default () => layout({
   title: 'Custom',
   content: html`
     <main class="text-wrapper">
