@@ -1,4 +1,4 @@
-const winston = require('winston')
+import winston from 'winston'
 
 const logger = winston.createLogger({
   levels: winston.config.npm.levels,
@@ -16,4 +16,4 @@ if (process.env.NODE_ENV !== 'production') {
   }))
 }
 
-module.exports = logger
+export default logger

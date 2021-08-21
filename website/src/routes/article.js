@@ -1,26 +1,30 @@
-const html = require('../utils/html')
-const sanity = require('../utils/sanity')
-const layout = require('../partials/layout')
-const articlesModel = require('../models/articles')
+import html from '../utils/html.js'
+import sanity from '../utils/sanity.js'
+import layout from '../partials/layout.js'
+import * as articlesModel from '../models/articles.js'
 
-module.exports = article => layout({
-  title: article.title,
-  content: html`
-    <main class="text-wrapper">
-      <a href="/">Back to home</a>
-      <h1 class="text-block-heading">${article.title}</h1>
+export function variants () {
+  return articlesModel.getAll()
+}
 
-      ${article.image && html`
-        <img src="${sanity.image(article.image)}" />
-      `}
+export function file (variant) {
+  return `articles/${variant._id}.html`
+}
 
-      ${article.body && sanity.html(article.body)}
-    </main>
-  `
-})
+export function render (variant) {
+  return layout({
+    title: variant.title,
+    content: html`
+      <main class="text-wrapper">
+        <a href="/">Back to home</a>
+        <h1 class="text-block-heading">${variant.title}</h1>
 
-module.exports.variants = () => articlesModel.getAll()
+        ${variant.image && html`
+          <img src="${sanity.image(variant.image)}" />
+        `}
 
-module.exports.file = article => (
-  `articles/${article._id}.html`
-)
+        ${variant.body && sanity.html(variant.body)}
+      </main>
+    `
+  })
+}

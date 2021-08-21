@@ -1,27 +1,26 @@
-const path = require('path')
-const crypto = require('crypto')
-const cacache = require('cacache')
-const logger = require('../../utils/logger')
+import crypto from 'crypto'
+import cacache from 'cacache'
+import logger from '../../utils/logger.js'
 
-const cachePath = path.join(__dirname, '../../.cache')
+const cachePath = new URL('../../.cache', import.meta.url).pathname
 
-module.exports.has = async function (key) {
+export const has = async function (key) {
   const info = await cacache.get.info(cachePath, key)
   const hit = !!info
   logger.debug(`Cache ${key} ${hit ? 'hit' : 'miss'}`)
   return hit
 }
 
-module.exports.get = async function (key) {
+export const get = async function (key) {
   return cacache.get(cachePath, key)
 }
 
-module.exports.put = async function (key, data) {
+export const put = async function (key, data) {
   logger.debug(`Caching ${key}`)
   return cacache.put(cachePath, key, data)
 }
 
-module.exports.key = function (string) {
+export const key = function (string) {
   const shasum = crypto.createHash('sha1')
   shasum.update(string)
   return shasum.digest('hex')

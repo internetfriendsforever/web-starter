@@ -1,7 +1,7 @@
-const html = require('../utils/html')
-const sanity = require('../utils/sanity')
+import html from '../utils/html.js'
+import sanity from '../utils/sanity.js'
 
-module.exports = async () => {
+export default async () => {
   const navigation = await sanity.fetch(`
     *[_type == "navigation"]{
       _id,

@@ -1,4 +1,4 @@
-const asyncTag = require('async-tag')
+import asyncTag from 'async-tag'
 
 function tag (strings, ...keys) {
   return strings.reduce((result, string, i) => {
@@ -20,4 +20,4 @@ function tag (strings, ...keys) {
   }, '')
 }
 
-module.exports = asyncTag(tag)
+export default asyncTag(tag)

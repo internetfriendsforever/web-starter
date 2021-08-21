@@ -1,22 +1,26 @@
-const path = require('path')
-const write = require('../utils/write')
-const logger = require('../utils/logger')
+import path from 'path'
+import write from '../utils/write.js'
+import logger from '../utils/logger.js'
 
 logger.info('Build started')
 
 const startTime = Date.now()
 
-build(path.join(__dirname, '..')).catch(error => {
+const root = new URL('..', import.meta.url).pathname
+const src = path.join(root, 'src')
+const dist = path.join(root, 'dist')
+
+try {
+  build({ src, dist })
+} catch (error) {
   logger.error(error.toString())
   console.error(error)
   process.exit(1)
-})
+}
 
-async function build (project) {
-  const dist = path.join(project, 'dist')
-  const src = path.join(project, 'src')
-  const render = require(path.join(src, 'render'))
-  const files = await render()
+async function build ({ src, dist }) {
+  const render = await import(path.join(src, 'render.js'))
+  const files = await render.default()
 
   await write(dist, files)
 

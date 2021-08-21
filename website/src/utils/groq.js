@@ -1,4 +1,4 @@
-const sanity = require('./sanity')
+import sanity from './sanity.js'
 
 class Groq {
   constructor (query) {
@@ -14,4 +14,4 @@ class Groq {
   }
 }
 
-module.exports = query => new Groq(query)
+export default query => new Groq(query)

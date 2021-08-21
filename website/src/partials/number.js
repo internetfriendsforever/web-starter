@@ -1,6 +1,6 @@
-const html = require('../utils/html')
+import html from '../utils/html.js'
 
-module.exports = () => {
+export default () => {
   const number = new Promise((resolve, reject) => {
     setTimeout(() => resolve(Math.random()), 100)
   })

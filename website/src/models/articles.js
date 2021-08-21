@@ -1,6 +1,6 @@
-const groq = require('../utils/groq')
+import groq from '../utils/groq.js'
 
-function getAll () {
+export function getAll () {
   return groq`
     *[_type == "article"]{
       _id,
@@ -10,8 +10,4 @@ function getAll () {
       "url": "articles/" + _id
     }
   `.fetch()
-}
-
-module.exports = {
-  getAll
 }

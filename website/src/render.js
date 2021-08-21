@@ -1,24 +1,24 @@
-const path = require('path')
-const pretty = require('pretty')
-const glob = require('glob')
-const logger = require('../utils/logger')
+import path from 'path'
+import fs from 'fs/promises'
+import pretty from 'pretty'
+import logger from '../utils/logger.js'
 
-module.exports = async () => {
+export default async () => {
   const files = {}
   const variants = {}
 
-  const folder = path.join(__dirname, 'routes')
-  const routes = glob.sync('**/*.js', { cwd: folder })
+  const folder = new URL('routes', import.meta.url).pathname
+  const routes = await fs.readdir(folder)
 
   // Get route variants
   await Promise.all(routes.map(async file => {
-    const route = require(path.join(folder, file))
+    const route = await import(path.join(folder, file))
 
     if (typeof route.variants === 'function') {
       variants[file] = await route.variants()
 
       if (!Array.isArray(variants[file])) {
-        return logger.warn(`Route ${file} variants method should return an array`)
+        return logger.warn(`Route ${file} "variants" method should resolve to an array`)
       }
     }
   }))
@@ -29,19 +29,19 @@ module.exports = async () => {
 
   // Build routes in parallell
   await Promise.all(routes.map(async file => {
-    const route = require(path.join(folder, file))
+    const route = await import(path.join(folder, file))
 
-    if (typeof route !== 'function') {
-      return logger.warn(`Route ${file} does not export a method`)
+    if (typeof route.render !== 'function') {
+      return logger.warn(`Route ${file} does not export a "render" method`)
     }
 
     if (file in variants) {
       if (typeof route.file !== 'function') {
-        return logger.warn(`Route ${file} exports variants, but no file method`)
+        return logger.warn(`Route ${file} exports a "variants" method, but "file" method is missing`)
       }
 
       for (const variant of variants[file]) {
-        files[await route.file(variant)] = await route(variant, context)
+        files[await route.file(variant)] = await route.render(variant, context)
       }
     } else {
       let filename = path.join(
@@ -53,7 +53,7 @@ module.exports = async () => {
         filename = await route.file()
       }
 
-      files[filename] = await route(context)
+      files[filename] = await route.render(context)
     }
   }))
 

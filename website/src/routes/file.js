@@ -1,3 +1,7 @@
-module.exports = () => JSON.stringify({ foo: 'bar' })
+export function file () {
+  return 'file.json'
+}
 
-module.exports.file = () => 'file.json'
+export function render () {
+  return JSON.stringify({ foo: 'bar' })
+}

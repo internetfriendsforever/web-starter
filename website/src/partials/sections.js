@@ -1,26 +1,25 @@
-const blocksToHyperScript = require('@sanity/block-content-to-hyperscript')
-const blocksToHtml = require('@sanity/block-content-to-html')
+import blocksToHtml from '@sanity/block-content-to-html'
+import sanity from '../utils/sanity.js'
+import html from '../utils/html.js'
+
 const h = blocksToHtml.h
-const sanity = require('../utils/sanity')
-const html = require('../utils/html')
 
 const serializers = {
   types: {
     imageExtended: props => {
-      console.log(props)
       const { asset, caption } = props.node
       const image = sanity.image(asset).width(500)
-
       const imageUrl = image.url()
-
-      console.log(imageUrl)
 
       return (
         h('figure', {
           className: 'portable-text-figure',
           children: [
             h('img', { src: imageUrl }),
-            h('figcaption', { className: 'portable-text-figcaption text-block-small' }, blocksToHyperScript({ blocks: caption }))
+            h('figcaption', {
+              className: 'portable-text-figcaption text-block-small',
+              innerHTML: blocksToHtml({ blocks: caption })
+            })
           ]
         })
       )
@@ -28,7 +27,7 @@ const serializers = {
   }
 }
 
-module.exports = (sections = [], context) => html`
+export default (sections = [], context) => html`
   ${sections.map((section, index) => {
     switch (section._type) {
       case 'section.banner':
