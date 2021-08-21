@@ -1,4 +1,3 @@
-import blocksToHyperScript from '@sanity/block-content-to-hyperscript'
 import blocksToHtml from '@sanity/block-content-to-html'
 import sanity from '../utils/sanity.js'
 import html from '../utils/html.js'
@@ -17,7 +16,10 @@ const serializers = {
           className: 'portable-text-figure',
           children: [
             h('img', { src: imageUrl }),
-            h('figcaption', { className: 'portable-text-figcaption text-block-small' }, blocksToHyperScript({ blocks: caption }))
+            h('figcaption', {
+              className: 'portable-text-figcaption text-block-small',
+              innerHTML: blocksToHtml({ blocks: caption })
+            })
           ]
         })
       )
