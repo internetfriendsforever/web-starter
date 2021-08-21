@@ -1,6 +1,5 @@
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
-import mkdirp from 'mkdirp'
 import logger from '../utils/logger.js'
 
 export default async function write (dist, files) {
@@ -12,26 +11,20 @@ export default async function write (dist, files) {
       .map(path.dirname)
       .map(dir => path.join(dist, dir))
       .filter(isUnique)
-      .map(dir => mkdirp(dir))
+      .map(dir => fs.mkdir(dir, {
+        recursive: true
+      }))
   )
 
   // Write files
   return Promise.all(
-    keys.map(key => {
+    keys.map(async key => {
       const out = path.join(dist, key)
       const body = files[key]
 
-      return new Promise((resolve, reject) => {
-        logger.debug(`Writing: ${key}`)
+      logger.debug(`Writing: ${key}`)
 
-        fs.writeFile(out, body, error => {
-          if (error) {
-            reject(error)
-          } else {
-            resolve()
-          }
-        })
-      })
+      return fs.writeFile(out, body)
     })
   )
 }
