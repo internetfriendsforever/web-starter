@@ -39,14 +39,9 @@ const fetch = async (query, params) => {
 const image = source => imageUrlBuilder(client).image(source)
 const html = (blocks, props) => blocksToHtml({ blocks, ...props })
 
-const groq = {
-  notDraft: '!(_id in path("drafts.**"))'
-}
-
 export default {
   client,
   image,
   html,
-  fetch,
-  groq
+  fetch
 }
