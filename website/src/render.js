@@ -7,7 +7,7 @@ export default async () => {
   const files = {}
   const variants = {}
 
-  const folder = new URL(path.join(path.dirname(import.meta.url), 'routes')).pathname
+  const folder = new URL('routes', import.meta.url).pathname
   const routes = await fs.readdir(folder)
 
   // Get route variants

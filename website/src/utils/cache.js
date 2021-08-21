@@ -1,11 +1,8 @@
-import path from 'path'
 import crypto from 'crypto'
 import cacache from 'cacache'
 import logger from '../../utils/logger.js'
 
-const cachePath = new URL(
-  path.join(path.dirname(import.meta.url), '../../.cache')
-).pathname
+const cachePath = new URL('../../.cache', import.meta.url).pathname
 
 export const has = async function (key) {
   const info = await cacache.get.info(cachePath, key)
