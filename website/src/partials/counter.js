@@ -13,7 +13,7 @@ export default ({ id, value = 0 }) => html`
     </button>
   </div>
 
-  <script type="module" defer>
+  <script type="module">
     import counter from '/assets/counter.js'
 
     counter({
