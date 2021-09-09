@@ -116,3 +116,33 @@ Go to **Preferences → Package settings → JS Custom → Rebuild syntaxes** an
 For more details on customizing JS Custom, see the [JS Custom GitHub repository](https://github.com/Thom1729/Sublime-JS-Custom#js-custom).
 
 Happy coding!
+
+## Patterns
+
+### Load and execute client side scripts from partials
+
+Partials load and execute client side scripts "locally" for each occurence using
+[`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+in a `script` tag of `type="module"`. Script tags will be scattered in the HTML document, but module loading are deferred automatically ([See JavaScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)).
+
+An example can be viewed in the [counter partial](website/src/partials/counter.js) and its [client side script](website/src/assets/counter.js).
+
+**Advantages:**
+
+- No need to serialize and deserialize data and configuration in HTML `data-*` attributes. It can be passed as properties in the function call directly.
+- Only client scripts that are actually in use for the given page is loaded and executed.
+- Calls to client scripts are coupled with the partial, instead of being decoupled globally somewhere.
+
+**Potential drawbacks:**
+
+- Many script tags in the DOM. Is this a problem?
+  - Slower DOM parsing?
+  - More HTML over the wire?
+  - Problems with CSS and rendering? A rumour says that CSS grids handle script tags poorly, and require `script { display: none }`.
+- Is there any overhead calling `import` many times over, or do the browsers handle this efficiently?
+- Elements need identifiers (`id` attribute), since we're targeting specific elements of the same type.
+- Is there any overhead in calling many `document.getElementById` instead of a single `document.querySelectorAll`?
+
+_This pattern can be measured up against the classic pattern of having global scripts._
+
+
