@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs/promises'
 import pretty from 'pretty'
 import logger from '../utils/logger.js'
-import sanity from './utils/sanity.js'
+import { stats } from './utils/cachedFetch.js'
 
 export default async () => {
   const files = {}
@@ -60,7 +60,7 @@ export default async () => {
     }
   }))
 
-  const { requests, cached } = sanity.stats()
+  const { requests, cached } = stats()
 
   logger.info(`${requests} fetch requests (${cached} cached)`)
 
