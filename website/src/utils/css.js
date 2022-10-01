@@ -6,7 +6,7 @@ export default tag({
     ...defaultProcessors,
     value => {
       if (value instanceof Selectable) {
-        return value.className
+        return value.selector
       }
     }
   ]

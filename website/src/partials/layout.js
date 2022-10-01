@@ -34,9 +34,7 @@ export default async ({ title, content }) => {
         ${site.appearance && html`
           <meta name="theme-color" content="${site.appearance.themeColor.hex}">
         `}
-        <link rel="stylesheet" href="/assets/reset.css">
-        <link rel="stylesheet" href="/assets/system.css">
-        <link rel="stylesheet" href="/assets/styles.css">
+        <link rel="stylesheet" href="/main.css">
       </head>
       <body>
         <header class="site-header">
