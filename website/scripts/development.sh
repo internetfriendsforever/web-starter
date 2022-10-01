@@ -1,5 +1,5 @@
 mkdir -p dist
 npx concurrently\
-  "./scripts/serve.sh" \
-  "./scripts/watch-assets.sh" \
-  "./scripts/watch-build.sh"
+  "node scripts/server.js" \
+  "node scripts/serve.js" \
+  "./scripts/watch.sh"

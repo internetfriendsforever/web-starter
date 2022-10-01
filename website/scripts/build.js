@@ -11,16 +11,8 @@ const src = path.join(root, 'src')
 const dist = path.join(root, 'dist')
 
 try {
-  build({ src, dist })
-} catch (error) {
-  logger.error(error.toString())
-  console.error(error)
-  process.exit(1)
-}
-
-async function build ({ src, dist }) {
-  const render = await import(path.join(src, 'render.js'))
-  const files = await render.default()
+  const render = require(path.join(src, 'render'))
+  const files = await render()
 
   await write(dist, files)
 
@@ -28,4 +20,8 @@ async function build ({ src, dist }) {
   const elapsed = Date.now() - startTime
 
   logger.info(`Built ${count} pages in ${elapsed}ms`)
+} catch (error) {
+  logger.error(error.toString())
+  console.error(error)
+  process.exit(1)
 }

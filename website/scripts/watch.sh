@@ -1,7 +1,7 @@
 npx chokidar \
   "src/**/*" \
   "build.js" \
-  --command 'npm run build' \
+  --command 'npx browser-sync reload --port 8000'
   --initial \
   --debounce 20 \
   --silent
