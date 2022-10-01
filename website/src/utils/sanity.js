@@ -1,9 +1,13 @@
+import * as fs from 'fs'
 import throat from 'throat'
 import sanityClient from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
 import blocksToHtml from '@sanity/block-content-to-html'
 import cachedFetch from './cachedFetch.js'
-import config from '../../../sanity/sanity.json'
+
+const configPath = '../../../sanity/sanity.json'
+const configUrl = new URL(configPath, import.meta.url)
+const config = JSON.parse(fs.readFileSync(configUrl))
 
 const client = sanityClient({
   projectId: config.api.projectId,
