@@ -11,8 +11,8 @@ const src = path.join(root, 'src')
 const dist = path.join(root, 'dist')
 
 try {
-  const render = require(path.join(src, 'render'))
-  const files = await render()
+  const render = await import(path.join(src, 'render.js'))
+  const files = await render.default()
 
   await write(dist, files)
 
