@@ -1,6 +1,7 @@
 import layout from '../partials/layout.js'
 import stack from '../partials/primitives/stack.js'
 import pad from '../partials/primitives/pad.js'
+import text from '../partials/primitives/text.js'
 
 export default function () {
   return layout({
@@ -11,7 +12,22 @@ export default function () {
         'Two',
         'Three',
         pad({
-          content: 'Hello'
+          content: stack({
+            gap: null,
+            items: [
+              text({
+                content: 'Hello'
+              }),
+              text({
+                strong: true,
+                content: 'Strong'
+              }),
+              text({
+                emphasis: true,
+                content: 'Emphasis'
+              })
+            ]
+          })
         })
       ]
     })
