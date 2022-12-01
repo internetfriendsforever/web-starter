@@ -13,6 +13,9 @@ export async function render () {
 
         <ul>
           <li>
+            <a href="/primitives">Primitives</a>
+          </li>
+          <li>
             <a href="/custom">Custom route</a>
           </li>
           <li>

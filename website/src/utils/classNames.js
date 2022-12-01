@@ -95,7 +95,7 @@ export class Modifier extends Selectable {
       ${content(this)}
 
       ${Object.entries(breakpoints).map(([name, minWidth]) => css`
-        @media (min-width: ${minWidth}) {
+        @media (min-width: ${minWidth}px) {
           ${content(this.breakpoint(name))}
         }
       `)}
@@ -158,6 +158,10 @@ export function blockFromFilename (filename) {
   return new Block(path.parse(filename).name)
 }
 
+export function blockFromImportMetaUrl (url) {
+  return blockFromFilename(new URL('', url).pathname)
+}
+
 export function join (classNames) {
   return classNames.filter(Boolean).join(' ')
 }
@@ -165,5 +169,6 @@ export function join (classNames) {
 export default {
   block,
   blockFromFilename,
+  blockFromImportMetaUrl,
   join
 }

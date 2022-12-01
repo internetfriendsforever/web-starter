@@ -4,7 +4,7 @@ import * as cache from './cache.js'
 const fetchRequests = {}
 const remoteFetchRequests = {}
 
-export default function fetch (params, handler) {
+export default function cachedFetch (params, handler) {
   const key = cache.key(JSON.stringify(params))
 
   if (!fetchRequests[key]) {
