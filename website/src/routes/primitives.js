@@ -2,7 +2,7 @@ import layout from '../partials/layout.js'
 import stack from '../partials/primitives/stack.js'
 import pad from '../partials/primitives/pad.js'
 
-export function render () {
+export default function () {
   return layout({
     title: 'Primitives',
     content: stack({

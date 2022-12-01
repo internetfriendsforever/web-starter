@@ -42,8 +42,8 @@ export default async pattern => {
     routes.map(async file => {
       const route = await import(path.join(folder, file))
 
-      if (typeof route.render !== 'function') {
-        return logger.warn(`Route ${file} does not export a method`)
+      if (typeof route.default !== 'function') {
+        return logger.warn(`Route ${file} does not export default method for rendering`)
       }
 
       if (file in variants) {
@@ -54,7 +54,7 @@ export default async pattern => {
         return Promise.all(
           variants[file].map(async variant => {
             const filename = await route.file(variant, context)
-            files[filename] = () => route.render(variant, context)
+            files[filename] = () => route.default(variant, context)
           })
         )
       } else {
@@ -67,7 +67,7 @@ export default async pattern => {
           filename = await route.file(context)
         }
 
-        files[filename] = () => route.render(context)
+        files[filename] = () => route.default(context)
       }
     })
   )

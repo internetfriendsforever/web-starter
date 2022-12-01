@@ -18,7 +18,7 @@ export function file (variant) {
   return `${variant.slug.current}.html`
 }
 
-export function render (variant, context) {
+export default function (variant, context) {
   return layout({
     title: variant.title,
     content: html`

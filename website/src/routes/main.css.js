@@ -4,6 +4,6 @@ export function file () {
   return '/main.css'
 }
 
-export function render () {
+export default function () {
   return main()
 }

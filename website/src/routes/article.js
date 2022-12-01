@@ -11,7 +11,7 @@ export function file (variant) {
   return `articles/${variant._id}.html`
 }
 
-export function render (variant) {
+export default function (variant) {
   return layout({
     title: variant.title,
     content: html`

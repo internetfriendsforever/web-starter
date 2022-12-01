@@ -1,7 +1,7 @@
 import html from '../utils/html.js'
 import layout from '../partials/layout.js'
 
-export function render (context) {
+export default function (context) {
   return layout({
     title: 'Context',
     content: html`

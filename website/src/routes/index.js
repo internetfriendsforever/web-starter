@@ -2,7 +2,7 @@ import html from '../utils/html.js'
 import layout from '../partials/layout.js'
 import * as articlesModel from '../models/articles.js'
 
-export async function render () {
+export default async function () {
   const articles = await articlesModel.getAll()
 
   return layout({

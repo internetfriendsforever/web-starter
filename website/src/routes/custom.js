@@ -3,7 +3,7 @@ import layout from '../partials/layout.js'
 import number from '../partials/number.js'
 import counter from '../partials/counter.js'
 
-export function render () {
+export default function () {
   return layout({
     title: 'Custom',
     content: html`

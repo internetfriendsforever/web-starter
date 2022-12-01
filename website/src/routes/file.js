@@ -2,6 +2,6 @@ export function file () {
   return 'file.json'
 }
 
-export function render () {
+export default function () {
   return JSON.stringify({ foo: 'bar' })
 }
