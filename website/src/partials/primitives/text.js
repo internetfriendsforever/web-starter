@@ -6,11 +6,12 @@ const block = classNames.blockFromImportMetaUrl(import.meta.url)
 
 export default ({
   content,
+  tag = 'div',
   lang = '',
   small = false,
   smaller = false,
-  strong = false,
-  emphasis = false,
+  bold = false,
+  italic = false,
   muted = false,
   highlighted = false,
   antialiased = false,
@@ -24,8 +25,8 @@ export default ({
 } = {}) => {
   const className = classNames.join([
     block.classMap({
-      strong,
-      emphasis,
+      bold,
+      italic,
       muted,
       highlighted,
       antialiased,
@@ -45,14 +46,6 @@ export default ({
     lang
   }
 
-  const tag = strong
-    ? 'strong'
-    : emphasis
-      ? 'em'
-      : inline
-        ? 'span'
-        : 'div'
-
   return element({
     tag,
     attributes,
@@ -61,14 +54,14 @@ export default ({
 }
 
 export const styles = () => css`
-  ${block.modifier('strong').responsive(strong => css`
-    ${strong.value(true)} {
+  ${block.modifier('bold').responsive(bold => css`
+    ${bold.value(true)} {
       font-weight: bold;
     }
   `)}
 
-  ${block.modifier('emphasis').responsive(emphasis => css`
-    ${emphasis.value(true)} {
+  ${block.modifier('italic').responsive(italic => css`
+    ${italic.value(true)} {
       font-style: italic;
     }
   `)}
